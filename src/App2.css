@@ -1,0 +1,175 @@
+body{
+    font-family: 'Source Code Pro', monospace;
+   
+  }
+  .container4 {  display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 0px 0px;
+    grid-auto-flow: row;
+    width: 40rem;
+  
+    border-radius: 10px;
+   
+    padding: 3rem 3rem 0rem 3rem;
+    margin: auto;
+    background-color: white;
+    grid-template-areas:
+      ". cs3 cs3 ds3 ds3 . . fs3 fs3 gs3 gs3 as3 as3 . . cs4 cs4 ds4 ds4 . . fs4 fs4 gs4 gs4 as4 as4 . . ."
+      "c3 c3 d3 d3 e3 e3 f3 f3 g3 g3 a3 a3 b3 b3 c4 c4 d4 d4 e4 e4 f4 f4 g4 g4 a4 a4 b4 b4 c5 c5";
+  }
+  
+  .c3 { grid-area: c3; }
+  .d3 { grid-area: d3; }
+  .e3 { grid-area: e3; }
+  .f3 { grid-area: f3; }
+  .g3 { grid-area: g3; }
+  .a3 { grid-area: a3; }
+  .b3 { grid-area: b3; }
+  .c4 { grid-area: c4; }
+  .d4 { grid-area: d4; }
+  .e4 { grid-area: e4; }
+  .f4 { grid-area: f4; }
+  .g4 { grid-area: g4; }
+  .a4 { grid-area: a4; }
+  .b4 { grid-area: b4; }
+  .c5 { grid-area: c5; }
+  .cs3 { grid-area: cs3; }
+  .ds3 { grid-area: ds3; }
+  .fs3 { grid-area: fs3; }
+  .gs3 { grid-area: gs3; }
+  .as3 { grid-area: as3; }
+  .cs4 { grid-area: cs4; }
+  .ds4 { grid-area: ds4; }
+  .fs4 { grid-area: fs4; }
+  .gs4 { grid-area: gs4; }
+  .as4 { grid-area: as4; }
+  
+  
+  .white {
+    background-color: white;
+    border: 2px solid black;
+    width: 100%;
+    height: 6rem;
+    text-align: center;
+    font-size: 1.2rem;
+    
+    
+  }
+  .black {
+    background-color: black;
+    border-left: 1px solid white;
+    border-right: 1px solid white;
+    margin-bottom: 0;
+    padding-bottom: 0;
+    height: 6rem;
+    color: white;
+    text-align: center;
+    font-size: 1.2rem;
+    
+    
+  }
+  .black:focus{
+    background-color: red;
+  }
+  .white:focus{
+    background-color: red;
+  }
+  .white p {
+    padding-top: 2rem;
+    margin-bottom: 0rem;
+    
+  }
+  
+  .black p {
+    padding-top: 2rem;
+    margin-bottom: 0rem;
+  }
+  
+   .status{
+    font-weight: medium;
+    font-size: .9rem;
+   }
+  
+   audio::-webkit-media-controls-panel{
+    background-color: white;
+    
+   }
+  
+   .pianobox{
+    background-color: black;
+    color: white;
+    height: 7rem;
+    padding-top: 1rem;
+   }
+   .piano{
+    border: solid 2px black;
+   width: 41rem;
+   border-radius: 10px;
+   margin: auto;
+   
+   }
+
+   .profile-audio-title{
+    background-color: rgb(0, 0, 0);
+    height: 1.5rem;
+    color: white;
+    font-weight: bold;
+    border: solid 2px black;
+    border-radius: 3px;
+   }
+
+   .recordalert{
+    height: 3rem;
+   }
+
+.effects{
+  width: 50vw;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  border: 2px solid gray;
+  border-radius: 10px;
+  margin-top: 2rem;
+  
+
+  padding: 2rem;
+}
+.effects h6{
+  font-weight: bold;
+}
+
+@media only screen and (max-width: 768px){
+  .rotate{
+    transform: rotate(-90deg);
+  }
+  .container4{
+    width:25rem;
+    padding: .5rem;
+    
+    font-size: .9rem;
+    margin: 0px 0px 0px 0px;
+    padding: 0px 0px 0px 0px;
+  }
+  .pianobox{
+    height: 3rem;
+    font-size: 1.4rem;
+    margin:0px -70px 0px -155px;
+    
+  }
+  .piano{
+   height: auto;
+  
+    padding: 0px 100px 0px 0px;
+    
+  }
+  .white, .black{
+    font-size: .9rem;
+  }
+  nav{
+    visibility: hidden;
+  }
+  .effects{
+
+  }
+}

@@ -1,0 +1,13 @@
+body {
+    font-family: 'Libre Baskerville', serif;
+  }
+
+.btn:focus {
+    outline: none;
+  }
+  .shop-image{
+    width: 100%;
+  max-width: 400px;
+  height: 35vh;
+  object-fit: cover;
+}
