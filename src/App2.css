@@ -131,8 +131,6 @@ body{
   border: 2px solid gray;
   border-radius: 10px;
   margin-top: 2rem;
-  
-
   padding: 2rem;
 }
 .effects h6{
@@ -140,36 +138,31 @@ body{
 }
 
 @media only screen and (max-width: 768px){
-  .rotate{
-    transform: rotate(-90deg);
-  }
   .container4{
-    width:25rem;
-    padding: .5rem;
-    
-    font-size: .9rem;
-    margin: 0px 0px 0px 0px;
-    padding: 0px 0px 0px 0px;
-  }
-  .pianobox{
-    height: 3rem;
-    font-size: 1.4rem;
-    margin:0px -70px 0px -155px;
-    
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr ;
+    grid-template-rows: 1fr 1fr;
+    padding: 1rem 1rem 0rem 1rem;
+    width: 100%;
+    max-width: 35rem;
+    height: auto;
+     grid-template-areas:
+      ". cs3 cs3 ds3 ds3 . . fs3 fs3 gs3 gs3 as3 as3 . . ."
+      "c3 c3 d3 d3 e3 e3 f3 f3 g3 g3 a3 a3 b3 b3 c4 c4 ";
+
   }
   .piano{
-   height: auto;
-  
-    padding: 0px 100px 0px 0px;
-    
+    width: 100%;
+    max-width: 35rem;
+    height: auto;
+  }
+  .gs4.black, .as4.black, .fs4.black, .ds4.black, .cs4.black, .c5.white, .b4.white, .a4.white, .g4.white, .f4.white, .e4.white, .d4.white{
+    visibility:hidden ;
+    background-color: white;
   }
   .white, .black{
+    width: 100;
+    max-width: 7rem;
+    height: auto;
     font-size: .9rem;
-  }
-  nav{
-    visibility: hidden;
-  }
-  .effects{
-
   }
 }
