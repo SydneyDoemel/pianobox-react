@@ -8,7 +8,7 @@ const firebaseConfig = {
   projectId: "capstone-project-78383",
   storageBucket: "capstone-project-78383.appspot.com",
   messagingSenderId: "662513003719",
-  appId: "1:662513003719:web:666b5401c8ee8286dfe2e2"
+  appId: "1:662513003719:web:4fb7d6cfe0984cafdfe2e2"
 };
 
 

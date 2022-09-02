@@ -1,39 +1,29 @@
 import React, { useState, useEffect, useCallback } from "react";
-
 import { useReactMediaRecorder } from "react-media-recorder";
 import * as Tone from "tone";
 import "../App2.css";
 import { BsMicFill, BsFillStopCircleFill, BsChevronUp, BsChevronDown, BsFillCircleFill } from "react-icons/bs";
-import { Oscillator, PitchShift } from "tone";
-import { ref, getStorage, uploadBytes, listAll, getDownloadURL } from "firebase/storage";
+import { ref, uploadBytes } from "firebase/storage";
 import { storage } from "../firebase";
 import { v4 } from "uuid";
-import Profile from "./Profile";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
-import SaveModal from "../components/SaveModal";
+
 
 export default function SynthTest({user}) {
- const [delay,setDelay]=useState(true)
+ 
   const [octave, setOctave] = useState(3);
   const [audioUpload, setAudioUpload] = useState(null);
   const [dur, setDur]=useState(4)
-  const [message, setMessage]= useState(false)
   const gainNode = new Tone.Gain(1).toDestination();
-
-  const synth = new Tone.PolySynth().connect(gainNode);
 
   const { status, startRecording, stopRecording, mediaBlobUrl } =
     useReactMediaRecorder({ audio: true });
 
-  // const pitchShift = new Tone.PitchShift(4).toDestination();
-  // const filter = new Tone.Filter("G5").toDestination();
-  // const pingPong = new Tone.PingPongDelay("8n", 0.6).toDestination();
+  const synth = new Tone.PolySynth().connect(gainNode);
   const pingPong = new Tone.PingPongDelay("8n", 0.6).toDestination();
-  const pingPong2 = new Tone.PingPongDelay("4n", 0.2).toDestination();
-  const reverb = new Tone.JCReverb(0.8).toDestination();
   const reverb2 = new Tone.Reverb(5).toDestination()
   const shift = new Tone.FrequencyShifter(.5).toDestination();
   const vibrato = new Tone.Vibrato(6,.1).toDestination();
+
 
   const startVibrato=() =>{
     synth.connect(vibrato);}
@@ -62,6 +52,7 @@ export default function SynthTest({user}) {
     },
     [synth, dur]
   );
+  
 const mutePiano = ()=>{
   gainNode.gain.rampTo(0)
 };
@@ -212,21 +203,11 @@ const enablePiano = ()=>{
     uploadBytes(audioRef, audioFile).then(() => {
       console.log("audio uploaded");
       console.log(audioFile);
-      setMessage(true)
+      
     });
   };
 
-  const saveMessage = ()=>{
-    if (message === true){
-        
-        return(
-            <><div className="alert alert-success" role="alert">
-                Audio saved
-          </div></>
-        )
-    }
-    
-}
+
 
   useEffect(() => {
     document.addEventListener("keydown", handleKeyPress);
@@ -394,6 +375,7 @@ const enablePiano = ()=>{
           <button className="btn btn-outline-dark ml-5 " onClick={()=>stopDelay()}>Stop</button>
           </div>
           </div>
+       
       </div>
      
       <div className="d-flex record justify-content-center align-items-center mt-">
