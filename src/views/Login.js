@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Link, Navigate } from 'react-router-dom';
 
+
 import '../App.css';
 
 export default class Login extends Component {
@@ -23,7 +24,7 @@ export default class Login extends Component {
             )
         }
     }
-  
+ 
     sendLoginInfo = async (e) => {
         e.preventDefault();
         
@@ -84,6 +85,7 @@ export default class Login extends Component {
                 </div>
               
                 <button type="submit " className="btn btn-outline-dark">Submit</button>
+               
             </form>
             <><p className="mt-5 text-center">Don't have an account? <Link to='/signup'>Sign Up</Link></p></>
             </div>

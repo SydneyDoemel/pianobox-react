@@ -13,17 +13,41 @@ export default function SynthTest({user}) {
   const [octave, setOctave] = useState(3);
   const [audioUpload, setAudioUpload] = useState(null);
   const [dur, setDur]=useState(4)
+  const [vib, setVib]=useState(6)
+  const [delay, setDelay]=useState(.5)
+  const [shifter, setShifter]=useState(.5)
   const gainNode = new Tone.Gain(1).toDestination();
 
   const { status, startRecording, stopRecording, mediaBlobUrl } =
     useReactMediaRecorder({ audio: true });
 
   const synth = new Tone.PolySynth().connect(gainNode);
-  const pingPong = new Tone.PingPongDelay("8n", 0.6).toDestination();
+  const pingPong = new Tone.PingPongDelay(delay, 0.6).toDestination();
   const reverb2 = new Tone.Reverb(5).toDestination()
-  const shift = new Tone.FrequencyShifter(.5).toDestination();
-  const vibrato = new Tone.Vibrato(6,.1).toDestination();
+  const shift = new Tone.FrequencyShifter(shifter).toDestination();
+  const vibrato = new Tone.Vibrato(vib,.1).toDestination();
 
+  const changeVib = async (e) => {
+    e.preventDefault()
+    const myvib = e.target.value
+    const imyvib = parseInt(myvib, 10)
+    setVib(imyvib)
+  
+}
+const changeShifter = async (e) => {
+  e.preventDefault()
+  const myshift = e.target.value
+  const imyshift= parseFloat(myshift, 10)
+  setShifter(imyshift)
+
+}
+const changeDelay = async (e) => {
+  e.preventDefault()
+  const mydelay = e.target.value
+  const imydelay= parseFloat(mydelay, 10)
+  setDelay(imydelay)
+
+}
 
   const startVibrato=() =>{
     synth.connect(vibrato);}
@@ -44,7 +68,10 @@ export default function SynthTest({user}) {
       synth.connect(pingPong);}
   const stopDelay=()=> {
         synth.disconnect(pingPong)};
- 
+
+  
+
+     
   const playNote = useCallback(
     async (note) => {
       synth.triggerAttackRelease(`${note}`, `${dur}n`);
@@ -352,6 +379,9 @@ const enablePiano = ()=>{
           <div className="btn-group" role='group'>
           <button className="btn btn-dark ml-5 " onClick={()=>startShift()}>Start</button>
           <button className="btn btn-outline-dark ml-5 " onClick={()=>stopShift()}>Stop</button>
+          <input onChange={(e)=>{changeShifter(e)}} id="shift" type="range" min="0" max="1" step=".1" value={shifter}></input>
+ 
+        
           </div>
           </div>
           <div className="reverb">
@@ -366,6 +396,7 @@ const enablePiano = ()=>{
           <div className="btn-group" role='group'>
           <button className="btn btn-dark ml-5 " onClick={()=>startVibrato()}>Start</button>
           <button className="btn btn-outline-dark ml-5 " onClick={()=>stopVibrato()}>Stop</button>
+          <input onChange={(e)=>{changeVib(e)}} id="vib" type="range" min="0" max="10" step="1" value={vib}></input>
           </div>
           </div>
           <div className="delay">
@@ -373,6 +404,7 @@ const enablePiano = ()=>{
           <div className="btn-group" role='group'>
           <button className="btn btn-dark ml-5 " onClick={()=>startDelay()}>Start</button>
           <button className="btn btn-outline-dark ml-5 " onClick={()=>stopDelay()}>Stop</button>
+          <input onChange={(e)=>{changeDelay(e)}} id="delay" type="range" min=".1" max="1.5" step=".1" value={delay}></input>
           </div>
           </div>
        

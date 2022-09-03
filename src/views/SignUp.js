@@ -75,8 +75,10 @@ export default class SignUp extends Component {
                     <input type="password" id="confirm_pass" className="form-control" name='confirmPassword'/>
                 </div>
                 
-                <button type="submit" className="btn btn-outline-dark">Submit</button>
+                <button type="submit" className="btn btn-outline-dark">Submit</button><br/>
+                
             </form>
+            
             <><p className="mt-5 text-center">Already have an account? <Link to='/login'>Log In</Link></p></>
             <>{this.message()}</>
             </div>
