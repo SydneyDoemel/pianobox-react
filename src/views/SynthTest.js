@@ -6,6 +6,7 @@ import { BsMicFill, BsFillStopCircleFill, BsChevronUp, BsChevronDown, BsFillCirc
 import { ref, uploadBytes } from "firebase/storage";
 import { storage } from "../firebase";
 import { v4 } from "uuid";
+import Effects from "../components/Effects";
 
 
 export default function SynthTest({user}) {
@@ -13,61 +14,68 @@ export default function SynthTest({user}) {
   const [octave, setOctave] = useState(3);
   const [audioUpload, setAudioUpload] = useState(null);
   const [dur, setDur]=useState(4)
-  const [vib, setVib]=useState(6)
-  const [delay, setDelay]=useState(.5)
-  const [shifter, setShifter]=useState(.5)
+  // const [effect, setEffect]=useState({"vibrato":6, "delay":.5, "shifter":.5})
+  // const [vibOn, setVibOn] =useState(false)
+  // const [vib, setVib]=useState(6)
+  // const [delay, setDelay]=useState(.5)
+  // const [shifter, setShifter]=useState(.5)
   const gainNode = new Tone.Gain(1).toDestination();
 
   const { status, startRecording, stopRecording, mediaBlobUrl } =
     useReactMediaRecorder({ audio: true });
 
   const synth = new Tone.PolySynth().connect(gainNode);
-  const pingPong = new Tone.PingPongDelay(delay, 0.6).toDestination();
-  const reverb2 = new Tone.Reverb(5).toDestination()
-  const shift = new Tone.FrequencyShifter(shifter).toDestination();
-  const vibrato = new Tone.Vibrato(vib,.1).toDestination();
+  // const pingPong = new Tone.PingPongDelay(delay, 0.6).toDestination();
+  // const reverb2 = new Tone.Reverb(5).toDestination()
+  // const shift = new Tone.FrequencyShifter(shifter).toDestination();
+  // const vibrato = new Tone.Vibrato(vib,.1).toDestination();
 
-  const changeVib = async (e) => {
-    e.preventDefault()
-    const myvib = e.target.value
-    const imyvib = parseInt(myvib, 10)
-    setVib(imyvib)
+//   const changeVib = async (e) => {
+//     e.preventDefault()
+//     const myvib = e.target.value
+//     const imyvib = parseInt(myvib, 10)
+//     setVib(imyvib)
   
-}
-const changeShifter = async (e) => {
-  e.preventDefault()
-  const myshift = e.target.value
-  const imyshift= parseFloat(myshift, 10)
-  setShifter(imyshift)
+// }
+// const changeShifter = async (e) => {
+//   e.preventDefault()
+//   const myshift = e.target.value
+//   const imyshift= parseFloat(myshift, 10)
+//   setShifter(imyshift)
 
-}
-const changeDelay = async (e) => {
-  e.preventDefault()
-  const mydelay = e.target.value
-  const imydelay= parseFloat(mydelay, 10)
-  setDelay(imydelay)
+// }
+// const changeDelay = async (e) => {
+//   e.preventDefault()
+//   const mydelay = e.target.value
+//   const imydelay= parseFloat(mydelay, 10)
+//   setDelay(imydelay)
 
-}
+// }
 
-  const startVibrato=() =>{
-    synth.connect(vibrato);}
-  const stopVibrato=()=> {
-      synth.disconnect(vibrato)};
 
-  const startVerb=() =>{
-    synth.connect(reverb2);}
-  const stopVerb=()=> {
-      synth.disconnect(reverb2)};
+//   const startVibrato=() =>{
+//     synth.connect(vibrato);
+//     setVibOn(true)
+// }
+//   const stopVibrato=()=> {
+//       synth.disconnect(vibrato)
+//       setVibOn(false)
+//     };
 
-  const startShift=() =>{
-    synth.connect(shift);}
-  const stopShift=()=> {
-      synth.disconnect(shift)};
+//   const startVerb=() =>{
+//     synth.connect(reverb2);}
+//   const stopVerb=()=> {
+//       synth.disconnect(reverb2)};
 
-  const startDelay=() =>{
-      synth.connect(pingPong);}
-  const stopDelay=()=> {
-        synth.disconnect(pingPong)};
+//   const startShift=() =>{
+//     synth.connect(shift);}
+//   const stopShift=()=> {
+//       synth.disconnect(shift)};
+
+//   const startDelay=() =>{
+//       synth.connect(pingPong);}
+//   const stopDelay=()=> {
+//         synth.disconnect(pingPong)};
 
   
 
@@ -219,22 +227,14 @@ const enablePiano = ()=>{
     let today = new Date();
     const audioBlob = await fetch(mediaBlobUrl).then((r) => r.blob());
     const audioFile = new File([audioBlob], "voice.wav", { type: "audio/wav" });
-    // const formData = new FormData(); // preparing to send to the server
-
-    // formData.append('file', audioFile);  // preparing to send to the server
     setAudioUpload(audioFile);
     if (audioUpload === null) return;
     const audioRef = ref(storage, `${user.username}/${title}_${v4()}=${today.getMonth()}-${today.getDate()}-${today.getFullYear()}`);
-    
-   
     uploadBytes(audioRef, audioFile).then(() => {
       console.log("audio uploaded");
       console.log(audioFile);
-      
     });
   };
-
-
 
   useEffect(() => {
     document.addEventListener("keydown", handleKeyPress);
@@ -243,6 +243,7 @@ const enablePiano = ()=>{
     };
   }, [handleKeyPress]);
 
+  
   return (
     <>
     <div className="body">
@@ -373,7 +374,7 @@ const enablePiano = ()=>{
       </div>
       </div>
       
-      <div className="effects mx-auto">
+      {/* <div className="effects mx-auto">
         <div className="pitch-shift">
           <h6 className="text-center">Pitch Shift</h6>
           <div className="btn-group" role='group'>
@@ -407,9 +408,9 @@ const enablePiano = ()=>{
           <input onChange={(e)=>{changeDelay(e)}} id="delay" type="range" min=".1" max="1.5" step=".1" value={delay}></input>
           </div>
           </div>
-       
-      </div>
-     
+       <Effects synth={synth} reverb={reverb2} delay={pingPong} shift={shift} vibrato={vibrato}/>
+      </div> */}
+      <Effects synth={synth} />
       <div className="d-flex record justify-content-center align-items-center mt-">
         <p className="mt-3 status alert alert-light recordalert">
           -- {status} --</p>
