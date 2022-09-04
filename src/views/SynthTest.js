@@ -1,82 +1,19 @@
 import React, { useState, useEffect, useCallback } from "react";
-import { useReactMediaRecorder } from "react-media-recorder";
+
 import * as Tone from "tone";
 import "../App2.css";
-import { BsMicFill, BsFillStopCircleFill, BsChevronUp, BsChevronDown, BsFillCircleFill } from "react-icons/bs";
-import { ref, uploadBytes } from "firebase/storage";
-import { storage } from "../firebase";
-import { v4 } from "uuid";
+import { BsChevronUp, BsChevronDown, BsFillCircleFill } from "react-icons/bs";
+
 import Effects from "../components/Effects";
+import Record from "../components/Record";
 
 
 export default function SynthTest({user}) {
  
   const [octave, setOctave] = useState(3);
-  const [audioUpload, setAudioUpload] = useState(null);
   const [dur, setDur]=useState(4)
-  // const [effect, setEffect]=useState({"vibrato":6, "delay":.5, "shifter":.5})
-  // const [vibOn, setVibOn] =useState(false)
-  // const [vib, setVib]=useState(6)
-  // const [delay, setDelay]=useState(.5)
-  // const [shifter, setShifter]=useState(.5)
   const gainNode = new Tone.Gain(1).toDestination();
-
-  const { status, startRecording, stopRecording, mediaBlobUrl } =
-    useReactMediaRecorder({ audio: true });
-
   const synth = new Tone.PolySynth().connect(gainNode);
-  // const pingPong = new Tone.PingPongDelay(delay, 0.6).toDestination();
-  // const reverb2 = new Tone.Reverb(5).toDestination()
-  // const shift = new Tone.FrequencyShifter(shifter).toDestination();
-  // const vibrato = new Tone.Vibrato(vib,.1).toDestination();
-
-//   const changeVib = async (e) => {
-//     e.preventDefault()
-//     const myvib = e.target.value
-//     const imyvib = parseInt(myvib, 10)
-//     setVib(imyvib)
-  
-// }
-// const changeShifter = async (e) => {
-//   e.preventDefault()
-//   const myshift = e.target.value
-//   const imyshift= parseFloat(myshift, 10)
-//   setShifter(imyshift)
-
-// }
-// const changeDelay = async (e) => {
-//   e.preventDefault()
-//   const mydelay = e.target.value
-//   const imydelay= parseFloat(mydelay, 10)
-//   setDelay(imydelay)
-
-// }
-
-
-//   const startVibrato=() =>{
-//     synth.connect(vibrato);
-//     setVibOn(true)
-// }
-//   const stopVibrato=()=> {
-//       synth.disconnect(vibrato)
-//       setVibOn(false)
-//     };
-
-//   const startVerb=() =>{
-//     synth.connect(reverb2);}
-//   const stopVerb=()=> {
-//       synth.disconnect(reverb2)};
-
-//   const startShift=() =>{
-//     synth.connect(shift);}
-//   const stopShift=()=> {
-//       synth.disconnect(shift)};
-
-//   const startDelay=() =>{
-//       synth.connect(pingPong);}
-//   const stopDelay=()=> {
-//         synth.disconnect(pingPong)};
-
   
 
      
@@ -88,12 +25,8 @@ export default function SynthTest({user}) {
     [synth, dur]
   );
   
-const mutePiano = ()=>{
-  gainNode.gain.rampTo(0)
-};
-const enablePiano = ()=>{
-  gainNode.gain.rampTo(1)
-};
+
+
   const keyDots = (keyname) => {
     const newDot = document.querySelector(`.${keyname} .dot`);
     newDot.setAttribute(
@@ -221,20 +154,6 @@ const enablePiano = ()=>{
     [playNote, setOctave, octave]
   );
 
-  const handleSave = async (e) => {
-    e.preventDefault();
-    const title = e.target.thing.value;
-    let today = new Date();
-    const audioBlob = await fetch(mediaBlobUrl).then((r) => r.blob());
-    const audioFile = new File([audioBlob], "voice.wav", { type: "audio/wav" });
-    setAudioUpload(audioFile);
-    if (audioUpload === null) return;
-    const audioRef = ref(storage, `${user.username}/${title}_${v4()}=${today.getMonth()}-${today.getDate()}-${today.getFullYear()}`);
-    uploadBytes(audioRef, audioFile).then(() => {
-      console.log("audio uploaded");
-      console.log(audioFile);
-    });
-  };
 
   useEffect(() => {
     document.addEventListener("keydown", handleKeyPress);
@@ -243,7 +162,7 @@ const enablePiano = ()=>{
     };
   }, [handleKeyPress]);
 
-  
+
   return (
     <>
     <div className="body">
@@ -373,85 +292,9 @@ const enablePiano = ()=>{
         </div>
       </div>
       </div>
-      
-      {/* <div className="effects mx-auto">
-        <div className="pitch-shift">
-          <h6 className="text-center">Pitch Shift</h6>
-          <div className="btn-group" role='group'>
-          <button className="btn btn-dark ml-5 " onClick={()=>startShift()}>Start</button>
-          <button className="btn btn-outline-dark ml-5 " onClick={()=>stopShift()}>Stop</button>
-          <input onChange={(e)=>{changeShifter(e)}} id="shift" type="range" min="0" max="1" step=".1" value={shifter}></input>
- 
-        
-          </div>
-          </div>
-          <div className="reverb">
-          <h6 className="text-center">Verb</h6>
-          <div className="btn-group" role='group'>
-          <button className="btn btn-dark ml-5 " onClick={()=>startVerb()}>Start</button>
-          <button className="btn btn-outline-dark ml-5 " onClick={()=>stopVerb()}>Stop</button>
-          </div>
-          </div>
-          <div className="vibrato">
-          <h6 className="text-center">Vibrato</h6>
-          <div className="btn-group" role='group'>
-          <button className="btn btn-dark ml-5 " onClick={()=>startVibrato()}>Start</button>
-          <button className="btn btn-outline-dark ml-5 " onClick={()=>stopVibrato()}>Stop</button>
-          <input onChange={(e)=>{changeVib(e)}} id="vib" type="range" min="0" max="10" step="1" value={vib}></input>
-          </div>
-          </div>
-          <div className="delay">
-          <h6 className="text-center">Delay</h6>
-          <div className="btn-group" role='group'>
-          <button className="btn btn-dark ml-5 " onClick={()=>startDelay()}>Start</button>
-          <button className="btn btn-outline-dark ml-5 " onClick={()=>stopDelay()}>Stop</button>
-          <input onChange={(e)=>{changeDelay(e)}} id="delay" type="range" min=".1" max="1.5" step=".1" value={delay}></input>
-          </div>
-          </div>
-       <Effects synth={synth} reverb={reverb2} delay={pingPong} shift={shift} vibrato={vibrato}/>
-      </div> */}
+    
       <Effects synth={synth} />
-      <div className="d-flex record justify-content-center align-items-center mt-">
-        <p className="mt-3 status alert alert-light recordalert">
-          -- {status} --</p>
-
-        <button className="my-1 mx-3 btn btn-outline-success" onClick={startRecording} > Start Recording <BsMicFill />
-        </button>
-        <button className="my-1 mx-3 btn-outline-danger btn" onClick={stopRecording}>
-          Stop Recording <BsFillStopCircleFill />
-        </button>
-        
-      </div>
-      <div className="d-flex justify-content-center align-items-center mt-2 py-2">
-      <audio src={mediaBlobUrl} controls loop />
-
-        <button type="button" onClick={() => { mutePiano() }} className="btn btn-outline-dark" data-bs-toggle="modal" data-bs-target="#exampleModal" > Save Audio
-        </button>
-
-        <div className="modal fade " id="exampleModal" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" >
-          <div className="modal-dialog">
-            <div className="modal-content">
-              <div className="modal-header">
-                <h5 className="modal-title" id="exampleModalLabel">
-                  New Audio
-                </h5>
-                <button type="button" onClick={()=>{enablePiano()}} className="btn-close " data-bs-dismiss="modal" aria-label="Close" ></button>
-              </div>
-              <form onSubmit={(e) => { handleSave(e); enablePiano()}}>
-                <div className="modal-body">
-                  <input name="thing" />
-                  
-                  <button type="submit" className="btn btn-outline-primary mx-3">
-                    Save
-                  </button>
-                 
-                </div>
-              </form>
-              </div>
-              
-            </div>
-          </div>
-        </div>
+      <Record gainNode={gainNode} user={user}/>
       </div>
     </>
   );

@@ -1,12 +1,7 @@
 
-import React, { useState, useEffect, useCallback } from "react";
-import { useReactMediaRecorder } from "react-media-recorder";
+import React, { useCallback, useEffect, useState} from "react";
 import * as Tone from "tone";
 import "../App2.css";
-import { BsMicFill, BsFillStopCircleFill, BsChevronUp, BsChevronDown, BsFillCircleFill } from "react-icons/bs";
-import { ref, uploadBytes } from "firebase/storage";
-import { storage } from "../firebase";
-import { v4 } from "uuid";
 
 export default function Effects({synth}) {
     const [effect, setEffect]=useState({"vibrato":6, "delay":.5, "shifter":.5})
@@ -64,6 +59,7 @@ const changeDelay = async (e) => {
       synth.connect(mydelay);}
   const stopDelay=()=> {
         synth.disconnect(mydelay)};
+
 
   
   return (

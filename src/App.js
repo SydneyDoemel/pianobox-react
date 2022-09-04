@@ -134,7 +134,7 @@ export default function App() {
                  <Route path='/audiotry' element={<Audiotry user={user}/>}/>
                  <Route path='/cart' element={<Cart user={user}/>} />
                  <Route path='/shop/:itemId' element={<SingleItem />} />
-            
+              
             
                </Routes>
                
