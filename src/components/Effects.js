@@ -1,6 +1,7 @@
 
 import React, { useCallback, useEffect, useState} from "react";
 import * as Tone from "tone";
+import {BsFillPlayFill,BsFillStopFill} from "react-icons/bs";
 import "../effects.css";
 
 export default function Effects({synth}) {
@@ -85,8 +86,8 @@ const changeVerb = async (e) => {
         <div className="pitch-shift">
           <h6 className="text-center m-2">Pitch Shift</h6>
           <div className="btn-group m-2" role='group'>
-          <button className="btn btn-dark ml-5 " style={{ backgroundColor: "rgb(25, 1, 102)"}} onClick={()=>startShift()}>Start</button>
-          <button className="btn btn-outline-dark ml-5 " onClick={()=>stopShift()}>Stop</button>
+          <button className="btn btn-outline-dark ml-5 " onClick={()=>startShift()}><BsFillPlayFill size={26}/></button>
+          <button className="btn btn-outline-dark ml-5 " onClick={()=>stopShift()}><BsFillStopFill size={26}/></button>
           </div><br/>
           <input className="mb-2 " onChange={(e)=>{changeShifter(e)}} id="shift" type="range" min="0" max="1" step=".1" value={shifter}></input>
  
@@ -96,16 +97,16 @@ const changeVerb = async (e) => {
           <div className="reverb">
           <h6 className="text-center m-2">Reverb</h6>
           <div className="btn-group m-2" role='group'>
-          <button className="btn btn-dark ml-5 " style={{ backgroundColor: "rgb(25, 1, 102)"}} onClick={()=>startVerb()}>Start</button>
-          <button className="btn btn-outline-dark ml-5 " onClick={()=>stopVerb()}>Stop</button>
+          <button className="btn  btn-outline-dark ml-5 " onClick={()=>startVerb()}><BsFillPlayFill size={26}/></button>
+          <button className="btn btn-outline-dark ml-5 " onClick={()=>stopVerb()}><BsFillStopFill size={26}/></button>
           </div><br/>
           <input className="mb-2 " onChange={(e)=>{changeVerb(e)}} id="verb" type="range" min="0" max="10" step="1" value={verb}></input>
           </div>
           <div className="vibrato">
           <h6 className="text-center m-2">Vibrato</h6>
           <div className="btn-group m-2" role='group'>
-          <button className="btn btn-dark ml-5 " style={{ backgroundColor: "rgb(25, 1, 102)"}} onClick={()=>startVibrato()}>Start</button>
-          <button className="btn btn-outline-dark ml-5 " onClick={()=>stopVibrato()}>Stop</button>
+          <button className="btn btn-outline-dark ml-5 "  onClick={()=>startVibrato()}><BsFillPlayFill size={26}/></button>
+          <button className="btn btn-outline-dark ml-5 " onClick={()=>stopVibrato()}><BsFillStopFill size={26}/></button>
           </div><br/>
           <input className="mb-2 " onChange={(e)=>{changeVib(e)}} id="vib" type="range" min="0" max="10" step="1" value={vib}></input>
           
@@ -113,8 +114,8 @@ const changeVerb = async (e) => {
           <div className="delay">
           <h6 className="text-center m-2">Delay</h6>
           <div className="btn-group m-2" role='group'>
-          <button className="btn btn-dark ml-5 " style={{ backgroundColor: "rgb(25, 1, 102)"}} onClick={()=>startDelay()}>Start</button>
-          <button className="btn btn-outline-dark ml-5 " onClick={()=>stopDelay()}>Stop</button>
+          <button className="btn btn-outline-dark ml-5 "  onClick={()=>startDelay()}><BsFillPlayFill size={26}/></button>
+          <button className="btn btn-outline-dark ml-5 " onClick={()=>stopDelay()}><BsFillStopFill size={26}/></button>
           </div><br/>
           <input className="mb-2 " onChange={(e)=>{changeDelay(e)}} id="delay" type="range" min=".1" max="1.5" step=".1" value={delay}></input>
          

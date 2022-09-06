@@ -47,6 +47,7 @@ export default function Profile({user}) {
   }, []);
   return (
     <>
+    <div className='profile-body'>
     <div className="accordion accordion-flush" id="accordionFlushExample">
   <div className="accordion-item">
     <h2 className="accordion-header" id="flush-headingOne">
@@ -78,7 +79,7 @@ export default function Profile({user}) {
   </div>
   
 </div>
-   
+   </div>
   </>
    
   )

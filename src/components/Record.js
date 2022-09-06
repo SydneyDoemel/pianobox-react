@@ -2,7 +2,7 @@ import React, { useState, useEffect, useCallback } from "react";
 import { useReactMediaRecorder } from "react-media-recorder";
 import * as Tone from "tone";
 import "../App2.css";
-import { BsMicFill, BsFillStopCircleFill} from "react-icons/bs";
+import { BsMicFill, BsFillStopCircleFill, BsRecordFill, BsStopFill} from "react-icons/bs";
 import { ref, uploadBytes } from "firebase/storage";
 import { storage } from "../firebase";
 import { v4 } from "uuid";
@@ -35,21 +35,19 @@ export default function Record({gainNode, user}) {
       };
     
   return (
-    <div><div className="d-flex record justify-content-center align-items-center mt-">
-    <p className="mt-3 status alert recordalert">
+    <div><div className="d-flex flex-wrap record justify-content-center align-items-center mt-3">
+    <p className="mt-2 status alert recordalert rec">
       -- {status} --</p>
 
-    <button className="my-1 mx-3 btn btn-outline-success" onClick={startRecording} > Start Recording <BsMicFill />
+    <button className=" btn rec" onClick={startRecording} ><BsRecordFill className="rec" size={30}/>
     </button>
-    <button className="my-1 mx-3 btn-outline-danger btn" onClick={stopRecording}>
-      Stop Recording <BsFillStopCircleFill />
+    <button className=" btn rec" onClick={stopRecording}>
+      <BsStopFill className="rec" size={30}/>
+      
     </button>
+    <audio src={mediaBlobUrl} controls loop />
     
-  </div>
-  <div className="d-flex justify-content-center align-items-center mb-5 py-2">
-  <audio src={mediaBlobUrl} controls loop />
-
-    <button type="button" onClick={() => { mutePiano() }} className="btn btn-outline-dark" data-bs-toggle="modal" data-bs-target="#exampleModal" > Save Audio
+    <button type="button" onClick={() => { mutePiano() }} className="btn btn-outline-dark ms-3" data-bs-toggle="modal" data-bs-target="#exampleModal" > Save Audio
     </button>
 
     <div className="modal fade " id="exampleModal" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" >
@@ -59,11 +57,11 @@ export default function Record({gainNode, user}) {
             <h5 className="modal-title" id="exampleModalLabel">
               New Audio
             </h5>
-            <button type="button" onClick={()=>{enablePiano()}} className="btn-close " data-bs-dismiss="modal" aria-label="Close" ></button>
+            <button type="button" onClick={()=>{enablePiano()}} className="btn-close btn-outline-dark" data-bs-dismiss="modal" aria-label="Close" ></button>
           </div>
           <form onSubmit={(e) => { handleSave(e); enablePiano()}}>
             <div className="modal-body">
-              <input name="thing" />
+              <input name="thing" type='text'/>
               
               <button type="submit" className="btn btn-outline-primary mx-3">
                 Save
@@ -75,6 +73,8 @@ export default function Record({gainNode, user}) {
           
         </div>
       </div>
-    </div></div>
+  </div>
+
+    </div>
   )
 }

@@ -20,6 +20,7 @@ import SavedBlobs from './views/Profile';
 import Profile from './views/Profile';
 import { useState, useEffect } from 'react';
 import Audiotry from './views/Audiotry';
+import Footer from './components/Footer';
 
 
 
@@ -114,7 +115,7 @@ export default function App() {
 
   return (
     <BrowserRouter >
-             <div>
+             <div className='app-body'>
                <Nav user={user} logMeOut={logMeOut}/>
           
                <Routes >
@@ -137,9 +138,9 @@ export default function App() {
               
             
                </Routes>
-               
-
-             </div>
+               </div>
+              <Footer />
+             
            </BrowserRouter>
   )
 

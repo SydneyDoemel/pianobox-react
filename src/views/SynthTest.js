@@ -276,9 +276,9 @@ export default function SynthTest({user}) {
         <div className="octave text-center mx-5 mt-5">
           <h6>Change Octave</h6>
           <div className="btn-group" role="group" aria-label="Basic example">
-            <button type="button" onClick={() => setOctave(octave - 1)} className="btn btn-outline-dark" style={{border:"1px solid rgb(25, 1, 102)", color: 'rgb(25, 1, 102)'}}>
+            <button type="button" onClick={() => setOctave(octave - 1)} className="btn btn-outline-dark" >
             Down<BsChevronDown /></button>
-            <button type="button" onClick={() => setOctave(octave + 1)} className="btn btn-outline-dark" style={{border:"1px solid rgb(25, 1, 102)", color: 'rgb(25, 1, 102)'}} > Up <BsChevronUp />
+            <button type="button" onClick={() => setOctave(octave + 1)} className="btn btn-outline-dark"  > Up <BsChevronUp />
             </button>
           </div> 
         </div>

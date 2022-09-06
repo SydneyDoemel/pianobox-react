@@ -69,25 +69,25 @@ export default class Login extends Component {
     render() {
         return this.state.redirect ? <Navigate to='/piano'/> :
         (
-            <><div className='container'>
+            <><div className='container login-body'>
                 
             <form className='col-md-6 mx-auto' onSubmit={(e) => { this.sendBasicAuth(e) }}>
-            <h1 className='row text-center mx-auto mb-5 mt-5'>Log In</h1>
+            <h1 className='row text-center mx-auto mb-5 mt-5 login'>Log In</h1>
                 <div className="mb-3 ">
-                    <label htmlFor="exampleInputEmail1" className="form-label">Username</label>
+                    <label htmlFor="exampleInputEmail1" className="form-label login">Username</label>
                     <input type="text" className="form-control" name='username' />
                 </div>
 
 
                 <div className="mb-3 ">
-                    <label htmlFor="exampleInputPassword1" className="form-label">Password</label>
+                    <label htmlFor="exampleInputPassword1" className="form-label login">Password</label>
                     <input type="password" className="form-control" name='password' />
                 </div>
               
-                <button type="submit " className="btn btn-outline-dark">Submit</button>
+                <button type="submit " className="btn btn-outline-dark sub-btn">Submit</button>
                
             </form>
-            <><p className="mt-5 text-center">Don't have an account? <Link to='/signup'>Sign Up</Link></p></>
+            <><p className="mt-5 text-center login">Don't have an account? <Link className="signup-link" to='/signup'>Sign Up</Link></p></>
             </div>
             {this.message()}
             </>

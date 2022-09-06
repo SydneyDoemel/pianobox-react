@@ -2,10 +2,13 @@
     font-family: 'Source Code Pro', monospace;
    background-color: rgb(240, 241, 241);
    color: rgb(25, 1, 102);
-   height: 200vh;
+   min-height: 100vh;
 
 
    padding-top: 10px;
+  }
+  .profile-body{
+   min-height: 100vh;
   }
   .container4 {  display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
@@ -99,10 +102,7 @@
     font-size: .9rem;
    }
   
-   audio::-webkit-media-controls-panel{
-    background-color: rgb(240, 241, 241);
-    
-   }
+  
   
    .pianobox{
     background-color: rgb(25, 1, 102);
@@ -175,3 +175,77 @@
     font-size: .9rem;
   }
 }
+button.accordion-button, .accordion-button.collapsed{
+ background-color: rgb(255, 17, 61);
+color:  rgb(25, 1, 102);
+font-size: 1.3rem;
+font-weight: bold;
+}
+
+.accordion-button.collapsed:hover{
+  color:rgb(240, 241, 241);
+}
+
+
+button.btn.btn-outline-dark{
+ border: 1px solid rgb(25, 1, 102);
+  color:  rgb(25, 1, 102);
+}
+button.btn.btn-outline-dark:focus{
+  background-color:rgb(25, 1, 102);
+  color: rgb(255, 17, 61);
+ }
+
+ button.btn.btn-outline-dark:hover{
+  background-color:rgb(25, 1, 102);
+   
+   color:rgb(240, 241, 241);
+ }
+
+
+
+ button.btn.btn-outline-primary.mx-3{
+  border: 1px solid rgb(25, 1, 102);
+   color:  rgb(25, 1, 102);
+ }
+ button.btn.btn-outline-primary.mx-3:focus{
+   background-color:rgb(25, 1, 102);
+   color: rgb(255, 17, 61);
+  }
+ 
+  button.btn.btn-outline-primary.mx-3:hover{
+   background-color:rgb(25, 1, 102);
+    
+    color:rgb(240, 241, 241);
+  }
+  input[type=text] {
+    border: 1px solid rgb(25, 1, 102);
+    border-radius: 7px;
+    background-color: rgb(240, 241, 241);
+    color: rgb(25, 1, 102);
+  }
+  div.modal-body, div.modal-header{
+    background-color: rgb(240, 241, 241);
+  }
+
+
+
+
+
+.record,.rec{
+  background-color: rgb(255, 17, 61);
+  color: rgb(25, 1, 102);
+}
+.record{
+  margin-left: 25vw;
+  margin-right: 25vw;
+  
+  
+}
+
+
+
+audio::-webkit-media-controls-panel{
+  background-color:rgba(255, 17, 61, 0);
+  
+ }

@@ -1,6 +1,13 @@
 body {
     font-family: 'Libre Baskerville', serif;
   }
+  .app-body{
+    padding-bottom: 2.5rem;
+  }
+  .login-body{
+    position: relative;
+    min-height: 100vh;
+  }
 
 .btn:focus {
     outline: none;
@@ -15,66 +22,101 @@ body {
   background-color: rgb(25, 1, 102);
   font-size: 1.1rem;
   
+}
+.login{
+  color:  rgb(25, 1, 102);
+}
+.signup-link{
+  color:  rgb(255, 17, 61);
+}
+.sub-btn{
+  color:  rgb(25, 1, 102);
+}
+.sub-btn:hover{
+  background-color:  rgb(25, 1, 102);
+}
+.sub-btn:focus{
+  background-color:  rgb(25, 1, 102);
+}
+a.nav-link, p.color-text{
+  color:  rgb(240, 241, 241);
+  padding-top: .7rem;
   
 }
-.nav-link{
-  color:  rgb(240, 241, 241);
-  
+p.color-text:hover, a.nav-link:hover, li.dropdown-item{
+  color:rgb(255, 17, 61);
+  background-color:  rgb(25, 1, 102);
 }
 .dd2{
   margin-left: 66vw;
 }
-.signup-btn{
-  background-color: rgb(255, 17, 61);
-  border: 2px solid rgb(255, 17, 61);
-  border-radius: 30px;
-  width: 7vw;
-  text-align: center;
-  color: rgb(25, 1, 102);
-  
-}
-.signup-btn:hover{
-  background-color: rgb(240, 241, 241);
-  color: rgb(255, 17, 61);
-  border: none;
-}
-.toggler{
-  color:  rgb(255, 17, 61);
-  
-
-}
-
-.greeting-btn{
+a.nav-link.signup-btn{
   background-color: rgb(255, 17, 61);
   border: 2px solid rgb(255, 17, 61);
   border-radius: 30px;
   width: 10vw;
   text-align: center;
   color: rgb(25, 1, 102);
-  font-weight: bold;
+  
 }
-.greeting-btn:hover{
+a.nav-link.signup-btn:hover{
   background-color: rgb(240, 241, 241);
   color: rgb(255, 17, 61);
   border: none;
 }
+.toggler{
+  color:  rgb(255, 17, 61);
+}
+p.login-text{
+  padding-top:.2rem;
+}
+p.login-text:hover{
+color: rgb(255, 17, 61);
+}
+
+ul.dropdown-menu.me-2{
+  background-color: rgb(25, 1, 102);
+  color:  rgb(240, 241, 241);
+  
+}
+a.nav-link.dropdown-toggle.greeting-btn{
+  background-color: rgb(255, 17, 61);
+  border: 2px solid rgb(255, 17, 61);
+  border-radius: 30px;
+  width: 15vw;
+  text-align: center;
+  color: rgb(25, 1, 102);
+  font-weight: bold;
+  
+}
+a.nav-link.dropdown-toggle.greeting-btn:hover{
+  background-color: rgb(240, 241, 241);
+  color: rgb(255, 17, 61);
+  border: none;
+ 
+}
 
 @media only screen and (max-width: 1300px){
-  .signup-btn{
+  a.nav-link.signup-btn{
     width: 8.5vw;
   }
-  .greeting-btn{
+  a.nav-link.dropdown-toggle.greeting-btn{
     width: 14vw;
   }
 }
 @media only screen and (max-width: 990px){
  
-  .greeting-btn{
+  a.nav-link.dropdown-toggle.greeting-btn{
     margin-right: 100vw;
     width: 30vw;
   }
-  .signup-btn{
+  a.nav-link.signup-btn{
     width:15vw;
    
+  }
+  a.nav-link, p.color-text{
+    
+    padding-top: 0;
+    
   }
 }
