@@ -36,7 +36,7 @@ export default function Record({gainNode, user}) {
     
   return (
     <div><div className="d-flex record justify-content-center align-items-center mt-">
-    <p className="mt-3 status alert alert-light recordalert">
+    <p className="mt-3 status alert recordalert">
       -- {status} --</p>
 
     <button className="my-1 mx-3 btn btn-outline-success" onClick={startRecording} > Start Recording <BsMicFill />
@@ -46,7 +46,7 @@ export default function Record({gainNode, user}) {
     </button>
     
   </div>
-  <div className="d-flex justify-content-center align-items-center mt-2 py-2">
+  <div className="d-flex justify-content-center align-items-center mb-5 py-2">
   <audio src={mediaBlobUrl} controls loop />
 
     <button type="button" onClick={() => { mutePiano() }} className="btn btn-outline-dark" data-bs-toggle="modal" data-bs-target="#exampleModal" > Save Audio

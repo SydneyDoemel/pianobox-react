@@ -1,6 +1,11 @@
-body{
+.body{
     font-family: 'Source Code Pro', monospace;
-   
+   background-color: rgb(240, 241, 241);
+   color: rgb(25, 1, 102);
+   height: 200vh;
+
+
+   padding-top: 10px;
   }
   .container4 {  display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
@@ -13,13 +18,14 @@ body{
    
     padding: 3rem 3rem 0rem 3rem;
     margin: auto;
-    background-color: white;
+    background-color: rgb(240, 241, 241);
     grid-template-areas:
       ". cs3 cs3 ds3 ds3 . . fs3 fs3 gs3 gs3 as3 as3 . . cs4 cs4 ds4 ds4 . . fs4 fs4 gs4 gs4 as4 as4 . . ."
       "c3 c3 d3 d3 e3 e3 f3 f3 g3 g3 a3 a3 b3 b3 c4 c4 d4 d4 e4 e4 f4 f4 g4 g4 a4 a4 b4 b4 c5 c5";
   }
-  
-  .c3 { grid-area: c3; }
+ 
+  .c3 { grid-area: c3;}
+ 
   .d3 { grid-area: d3; }
   .e3 { grid-area: e3; }
   .f3 { grid-area: f3; }
@@ -34,7 +40,9 @@ body{
   .a4 { grid-area: a4; }
   .b4 { grid-area: b4; }
   .c5 { grid-area: c5; }
-  .cs3 { grid-area: cs3; }
+  .cs3 {grid-area: cs3;}
+
+
   .ds3 { grid-area: ds3; }
   .fs3 { grid-area: fs3; }
   .gs3 { grid-area: gs3; }
@@ -47,8 +55,8 @@ body{
   
   
   .white {
-    background-color: white;
-    border: 2px solid black;
+    background-color:rgb(240, 241, 241);
+    border: 2px solid rgb(25, 1, 102);
     width: 100%;
     height: 6rem;
     text-align: center;
@@ -57,13 +65,13 @@ body{
     
   }
   .black {
-    background-color: black;
-    border-left: 1px solid white;
-    border-right: 1px solid white;
+    background-color: rgb(25, 1, 102);
+    border-left: 1px solid rgb(240, 241, 241);
+    border-right: 1px solid rgb(240, 241, 241);
     margin-bottom: 0;
     padding-bottom: 0;
     height: 6rem;
-    color: white;
+    color: rgb(240, 241, 241);
     text-align: center;
     font-size: 1.2rem;
     
@@ -92,18 +100,18 @@ body{
    }
   
    audio::-webkit-media-controls-panel{
-    background-color: white;
+    background-color: rgb(240, 241, 241);
     
    }
   
    .pianobox{
-    background-color: black;
-    color: white;
-    height: 7rem;
-    padding-top: 1rem;
+    background-color: rgb(25, 1, 102);
+    color: rgb(240, 241, 241);
+    height: 6rem;
+    padding-top: .8rem;
    }
    .piano{
-    border: solid 2px black;
+    border: solid 2px rgb(25, 1, 102);
    width: 41rem;
    border-radius: 10px;
    margin: auto;
@@ -111,16 +119,17 @@ body{
    }
 
    .profile-audio-title{
-    background-color: rgb(0, 0, 0);
+    background-color:rgb(25, 1, 102);
     height: 1.5rem;
-    color: white;
+    color: rgb(240, 241, 241);
     font-weight: bold;
-    border: solid 2px black;
+    border: solid 2pxrgb(25, 1, 102);
     border-radius: 3px;
    }
 
    .recordalert{
     height: 3rem;
+    color: rgb(255, 17, 61);
    }
 
 .effects{
@@ -128,7 +137,7 @@ body{
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
-  border: 2px solid gray;
+ 
   border-radius: 10px;
   margin-top: 2rem;
   padding: 2rem;
@@ -157,7 +166,7 @@ body{
   }
   .gs4.black, .as4.black, .fs4.black, .ds4.black, .cs4.black, .c5.white, .b4.white, .a4.white, .g4.white, .f4.white, .e4.white, .d4.white{
     visibility:hidden ;
-    background-color: white;
+    background-color: rgb(240, 241, 241);
   }
   .white, .black{
     width: 100;

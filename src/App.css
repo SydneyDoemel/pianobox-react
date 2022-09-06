@@ -11,3 +11,70 @@ body {
   height: 35vh;
   object-fit: cover;
 }
+.navbar{
+  background-color: rgb(25, 1, 102);
+  font-size: 1.1rem;
+  
+  
+}
+.nav-link{
+  color:  rgb(240, 241, 241);
+  
+}
+.dd2{
+  margin-left: 66vw;
+}
+.signup-btn{
+  background-color: rgb(255, 17, 61);
+  border: 2px solid rgb(255, 17, 61);
+  border-radius: 30px;
+  width: 7vw;
+  text-align: center;
+  color: rgb(25, 1, 102);
+  
+}
+.signup-btn:hover{
+  background-color: rgb(240, 241, 241);
+  color: rgb(255, 17, 61);
+  border: none;
+}
+.toggler{
+  color:  rgb(255, 17, 61);
+  
+
+}
+
+.greeting-btn{
+  background-color: rgb(255, 17, 61);
+  border: 2px solid rgb(255, 17, 61);
+  border-radius: 30px;
+  width: 10vw;
+  text-align: center;
+  color: rgb(25, 1, 102);
+  font-weight: bold;
+}
+.greeting-btn:hover{
+  background-color: rgb(240, 241, 241);
+  color: rgb(255, 17, 61);
+  border: none;
+}
+
+@media only screen and (max-width: 1300px){
+  .signup-btn{
+    width: 8.5vw;
+  }
+  .greeting-btn{
+    width: 14vw;
+  }
+}
+@media only screen and (max-width: 990px){
+ 
+  .greeting-btn{
+    margin-right: 100vw;
+    width: 30vw;
+  }
+  .signup-btn{
+    width:15vw;
+   
+  }
+}

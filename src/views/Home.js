@@ -162,7 +162,7 @@ export default function Home({user}) {
   return (
     <>
     <div className="body rotate">
-    <h1 className="display-4 pianobox mt-2 mb-5">PianoBox</h1>
+ 
     <div className="piano">
      
     <div className="container4">

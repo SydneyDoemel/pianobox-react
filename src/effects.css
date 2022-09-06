@@ -1,0 +1,74 @@
+body{
+    font-family: 'Source Code Pro', monospace;
+   
+  }
+  
+   .status{
+    font-weight: medium;
+    font-size: .9rem;
+    color: rgb(255, 17, 61);
+   }
+  
+   audio::-webkit-media-controls-panel{
+    background-color: rgb(240, 241, 241);
+    
+   }
+  .btn{
+    color: rgb(25, 1, 102);
+  }
+  .purp-btn{
+    background-color: rgb(25, 1, 102);
+  }
+
+   .profile-audio-title{
+    background-color:  rgb(25, 1, 102);
+    height: 1.5rem;
+    color:  rgb(240, 241, 241);
+    font-weight: bold;
+    border: solid 2px  rgb(25, 1, 102);
+    border-radius: 3px;
+   }
+
+   .recordalert{
+    height: 3rem;
+   }
+
+.effects{
+  width: 55vw;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  border: 2px solid rgb(25, 1, 102);
+  border-radius: 10px;
+  margin-top: 2rem;
+  padding: 2rem;
+}
+.effects h6{
+  font-weight: bold;
+}
+
+input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  background: transparent;
+  cursor: pointer;
+  width: 8.6rem;
+}
+input[type="range"]::-webkit-slider-runnable-track {
+  background: linear-gradient(45deg, rgb(255, 17, 61), rgb(56, 15, 192));
+  height: 0.5rem;
+}
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none; /* Override default look */
+  appearance: none;
+  margin-top: -12px; /* Centers thumb on the track */
+  background-color:rgb(25, 1, 102);
+  border: 2px solid rgb(25, 1, 102);
+  height: 2rem;
+  width: 1rem;    
+}
+input[type="range"]:focus::-webkit-slider-thumb {
+  border: 1px solid rgb(25, 1, 102);
+  outline: 3px solidrgb(25, 1, 102);
+  outline-offset: 0.125rem;
+}

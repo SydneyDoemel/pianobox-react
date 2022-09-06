@@ -31,7 +31,7 @@ export default function SynthTest({user}) {
     const newDot = document.querySelector(`.${keyname} .dot`);
     newDot.setAttribute(
       "style",
-      "visibility: visible; color:red; font-size: 10px;"
+      "visibility: visible; color:rgb(255, 17, 61); font-size: 10px;"
     );
     setTimeout(() => {
       newDot.setAttribute("style", "visibility: hidden;");
@@ -166,9 +166,10 @@ export default function SynthTest({user}) {
   return (
     <>
     <div className="body">
-    <h1 className="display-4 pianobox mt-2 mb-4">PianoBox</h1>
-    <div className="piano">
-    <div className="container4">
+    
+    <div className="piano mt-5">
+    <div className="container4 ">
+      
       <div className="c3 white" onClick={() => {playNote(`C${octave}`);keyDots("c3");}}>
         <div> <p>a</p>{" "} <BsFillCircleFill className="dot" style={{ visibility: "hidden" }}/>
         </div>
@@ -275,9 +276,9 @@ export default function SynthTest({user}) {
         <div className="octave text-center mx-5 mt-5">
           <h6>Change Octave</h6>
           <div className="btn-group" role="group" aria-label="Basic example">
-            <button type="button" onClick={() => setOctave(octave - 1)} className="btn btn-outline-dark" >
+            <button type="button" onClick={() => setOctave(octave - 1)} className="btn btn-outline-dark" style={{border:"1px solid rgb(25, 1, 102)", color: 'rgb(25, 1, 102)'}}>
             Down<BsChevronDown /></button>
-            <button type="button" onClick={() => setOctave(octave + 1)} className="btn btn-outline-dark" > Up <BsChevronUp />
+            <button type="button" onClick={() => setOctave(octave + 1)} className="btn btn-outline-dark" style={{border:"1px solid rgb(25, 1, 102)", color: 'rgb(25, 1, 102)'}} > Up <BsChevronUp />
             </button>
           </div> 
         </div>

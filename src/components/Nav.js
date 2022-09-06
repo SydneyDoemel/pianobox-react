@@ -1,24 +1,29 @@
 import React, { Component } from 'react';
 import '../App.css';
 import { Link } from 'react-router-dom';
-
+import {BsList} from 'react-icons/bs'
 export default class Nav extends Component {
   render() {
     return (
-        <nav className="navbar navbar-expand-lg bg-light">
-        <div className="container-fluid">
-          <a className="navbar-brand" href="/">PianoBox</a>
+        <nav className="navbar navbar-expand-lg ">
+        <div className="container-fluid nav-ctnr">
+          <a className="navbar-brand" href="/" style={{color: 'rgb(255, 17, 61)', fontWeight: 'bold', fontSize: '1.5rem'}}>PianoBox</a>
           <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span className="navbar-toggler-icon"></span>
+            <BsList size={35} className='toggler'/>
           </button>
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
               <li className="nav-item">
-                <Link className="nav-link active" aria-current="page" to="/">Home</Link>
+                <Link className="nav-link active" aria-current="page" to="/" style={{color: 'rgb(240, 241, 241)'}}>Home</Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link active" aria-current="page" to="/audiotry">Test</Link>
+                <Link className="nav-link active" aria-current="page" to="/audiotry" style={{color: 'rgb(240, 241, 241)'}}>Test</Link>
               </li>
+              {this.props.user.username? <> 
+              <li className="nav-item piano-link">
+                <Link className="nav-link active" to="/piano" style={{color: 'rgb(240, 241, 241)'}}>Piano</Link>
+              </li></>:<></>}
+            </ul>
               {/* <li className="nav-item">
                 <Link className="nav-link" to="/news">News</Link>
               </li> */}
@@ -48,44 +53,40 @@ export default class Nav extends Component {
                */}
               {this.props.user.username ?
                 <>
-                <li className="nav-item">
-                <Link className="nav-link" to="/piano">Piano</Link>
-              </li>
-                <li className="nav-item dropdown">
+                <ul className='navbar-nav  ms-auto mb-2 mb-lg-0 greeting-btn'>
+               
+                <li className="nav-item dropdown ">
                 <a className="nav-link dropdown-toggle" href="/" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                     Hello, {this.props.user.username}
                 </a>
-                  <ul className="dropdown-menu">
-                    <li className="dropdown-item"><Link className="nav-link" to="/profile">Profile</Link></li>
-                    <li className="dropdown-item" onClick={this.props.logMeOut}><Link className="nav-link" to="/login">Log Out</Link></li>
+                  <ul className="dropdown-menu me-2">
+                    <li className="dropdown-item ddi"><Link className="nav-link" to="/profile" >Profile</Link></li>
+                    <li className="dropdown-item" onClick={this.props.logMeOut}><Link className="nav-link" to="/login" >Log Out</Link></li>
                   </ul>
                 </li>
                   
-              
+                </ul>
                   
                 </>
                 :
                 <>
                 
-                <li className="nav-item dropdown">
-                <a className="nav-link dropdown-toggle" href="/" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    Hello, Guest
-                </a>
-                  <ul className="dropdown-menu">
-                  <li className="nav-item">
-                    <Link className="nav-link" to="/login">Login</Link>
+                
+                  <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
+                  <li className="nav-item login-btn">
+                    <Link className="nav-link login-btn" to="/login" style={{color: 'rgb(240, 241, 241)'}}>Login</Link>
                   </li>
-                  <li className="nav-item">
+                  <li className="nav-item signup-btn ms-lg-3">
                     <Link className="nav-link" to="/signup">Sign Up</Link>
                   </li>
                   </ul>
-                </li>
+                
                  
                  
                   
                 </>
               }
-            </ul>
+            
           
           </div>
         </div>
