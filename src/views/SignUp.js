@@ -52,6 +52,7 @@ export default class SignUp extends Component {
     render() {
         return this.state.redirect ? <Navigate to="/login"/>:
         (
+            <div className='signup-body'>
             <div className='container'>
             <form className='col-md-6 mx-auto' onSubmit={(e)=>{this.sendSignUpInfo(e)}}>
             <h1 className='row text-center mx-auto mb-5 mt-5 login'>Sign Up</h1>
@@ -80,6 +81,7 @@ export default class SignUp extends Component {
             
             <><p className="mt-5 text-center login">Already have an account? <Link to='/login' className='signup-link'>Log In</Link></p></>
             <>{this.message()}</>
+            </div>
             </div>
         )
     }

@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useReducer } from 'react'
 import "../App2.css";
 import { fileName, dateforme} from '../Regex';
 import {BsBoxArrowUp}  from "react-icons/bs";
 import {storage} from '../firebase';
 import {v4 as uuidv4} from 'uuid';
-import { ref, listAll, getDownloadURL, getStorage, deleteObject } from 'firebase/storage';
+import { ref, listAll, getDownloadURL, getStorage, deleteObject, uploadBytes } from 'firebase/storage';
 // import { uuidv4 } from '@firebase/util';
 
 
@@ -12,20 +12,37 @@ import { ref, listAll, getDownloadURL, getStorage, deleteObject } from 'firebase
 export default function Profile({user}) {
     const [filename, setFilename] = useState([])
     const [audioList, setAudioList]=useState([]);
-    const [render, setRender]=useState(false)
+    const [render, setRender]=useState(0)
+    const [, forceUpdate] = useState(0);
+    const [audioUpload, setAudioUpload] = useState(null)
+
     const audioListRef = ref(storage, `${user.username}`)
     const mystorage = getStorage();
     
+
+
+    // set  state true/false  to rerender
 
   const deleteAudio = (name)=>{
         const thisAudio = ref(storage, name);
         deleteObject(thisAudio).then(() => {
           console.log('File deleted successfully');
-       
+         
         });   
-       
+  
       }
-   
+  
+const handleSaveToFolder =  (title) => {
+
+  const audioFile = title;
+  setAudioUpload(audioFile);
+  if (audioUpload === null) return;
+  const audioRef = ref(storage, `${user.username}/newfolder/${fileName.exec((title[1]._location.path_))}`);
+  uploadBytes(audioRef, audioFile).then(() => {
+    console.log("audio uploaded");
+    console.log(audioFile);
+  });
+};
   
   useEffect(() => {
     // const audioListRef = ref(storage, `${user.username}`)
@@ -43,7 +60,7 @@ export default function Profile({user}) {
         
       })
     })
-    
+  
   }, []);
   return (
     <>
@@ -52,7 +69,7 @@ export default function Profile({user}) {
   <div className="accordion-item">
     <h2 className="accordion-header" id="flush-headingOne">
       <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
-        Saved Audio Clips
+        All Saved Audio Clips
       </button>
     </h2>
     <div id="flush-collapseOne" className="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
@@ -66,7 +83,8 @@ export default function Profile({user}) {
       <p></p>
       <audio key={i+1} src={url[0]} controls/><br/>
      <div className='d-flex justify-content-between'>
-      <button onClick={()=>deleteAudio(url[1]._location.path_)} className='btn btn-outline-danger mr-5'>Delete</button>
+      <button onClick={()=>{deleteAudio(url[1]._location.path_); forceUpdate(Math.random())}} className='btn btn-outline-danger mr-5'>Delete</button>
+      <button onClick={()=>handleSaveToFolder(url)} className='btn btn-outline-dark mr-5'>Add to folder</button>
       <BsBoxArrowUp size={'1.5rem'}/>
       </div>
       </div>
@@ -79,6 +97,20 @@ export default function Profile({user}) {
   </div>
   
 </div>
+<div className="accordion accordion-flush" id="accordionFlushExample">
+  <div className="accordion-item">
+    <h2 className="accordion-header" id="flush-headingOne">
+      <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+        Folders - map so an accordion for each folder someone has
+      </button>
+    </h2>
+    <div id="flush-collapseOne" className="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+      <div className="accordion-body">
+        <button >New Folder</button>
+        </div>
+        </div>
+        </div>
+        </div>
    </div>
   </>
    

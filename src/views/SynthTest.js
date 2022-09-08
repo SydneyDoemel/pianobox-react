@@ -2,16 +2,20 @@ import React, { useState, useEffect, useCallback } from "react";
 
 import * as Tone from "tone";
 import "../App2.css";
-import { BsChevronUp, BsChevronDown, BsFillCircleFill } from "react-icons/bs";
+import { BsChevronUp, BsChevronDown, BsFillCircleFill, BsArrowLeftCircle, BsArrowRightCircle } from "react-icons/bs";
 
 import Effects from "../components/Effects";
 import Record from "../components/Record";
+import Infomodal from "../components/Infomodal";
+import { Link } from "react-router-dom";
+
 
 
 export default function SynthTest({user}) {
  
   const [octave, setOctave] = useState(3);
   const [dur, setDur]=useState(4)
+  const [checked, setChecked]=useState(false)
   const gainNode = new Tone.Gain(1).toDestination();
   const synth = new Tone.PolySynth().connect(gainNode);
   
@@ -165,125 +169,124 @@ export default function SynthTest({user}) {
 
   return (
     <>
-    <div className="body">
-    
-    <div className="piano mt-5">
-    <div className="container4 ">
+    <div className="body ">
+      <input type="checkbox" checked={checked}  onChange={() => setChecked((prev) => !prev)}></input>
+      <p className="tool text-center">{checked? <><p className="tooltips d-inline-flex">Use corresponding keys to play</p></>:<></>}</p>
+    <div className="d-flex justify-content-center align-items-center">
+     
+    <button type="button" style={{"border":"none"}}  className="" onClick={() => setOctave(octave - 1)} ><span className="tool">{checked? <><p className="tooltips">Down one octave</p></>:<></>}</span><BsArrowLeftCircle size={30} className="me-2 mt-5 octave-arrow"/> </button>
+
+    <div className="piano mt-3">
+   
+        <div className="container4">
+          
+          <div className="c3 white" onClick={() => {playNote(`C${octave}`);keyDots("c3");}}>
+            <div> <p>a</p>{" "} <BsFillCircleFill className="dot" style={{ visibility: "hidden" }}/>
+            </div>
+          </div>
+          <div className="d3 white" onClick={() => {playNote(`D${octave}`);keyDots("d3");}}>
+            <div> <p>s</p>{" "} <BsFillCircleFill className="dot" style={{ visibility: "hidden" }}/>
+            </div>
+          </div>
+          <div className="e3 white" onClick={() => {playNote(`E${octave}`);keyDots("e3");}}>
+            <div> <p>d</p>{" "} <BsFillCircleFill className="dot" style={{ visibility: "hidden" }}/></div>
+            </div>
+          <div className="f3 white" onClick={() => {playNote(`F${octave}`);keyDots("f3");}}>
+            <div><p>f</p>{" "}<BsFillCircleFill className="dot" style={{ visibility: "hidden" }}/>
+            </div>
+          </div>
+          <div className="g3 white" onClick={() => {playNote(`G${octave}`);keyDots("g3");}}>
+            <div><p>g</p>{" "}<BsFillCircleFill className="dot" style={{ visibility: "hidden" }}/>
+            </div>
+          </div>
+          <div className="a3 white" onClick={() => { playNote(`A${octave}`); keyDots("a3");}}>
+              <div> <p>h</p>{" "} <BsFillCircleFill className="dot" style={{ visibility: "hidden" }} />
+              </div>
+            </div>
+          <div className="b3 white" onClick={() => { playNote(`B${octave}`); keyDots("b3"); }} >
+              <div> <p>j</p>{" "} <BsFillCircleFill className="dot" style={{ visibility: "hidden" }} />
+              </div>
+          </div>
+          <div className="c4 white" onClick={() => { playNote(`C${octave + 1}`); keyDots("c4"); }} >
+              <div> <p>k</p>{" "} <BsFillCircleFill className="dot" style={{ visibility: "hidden" }} />
+              </div>
+            </div>
+          <div className="d4 white" onClick={() => { playNote(`D${octave + 1}`); keyDots("d4"); }} >
+              <div> <p>l</p>{" "} <BsFillCircleFill className="dot" style={{ visibility: "hidden" }} />
+              </div>
+            </div>
+          <div className="e4 white" onClick={() => { playNote(`E${octave + 1}`); keyDots("e4"); }} >
+              <div> <p>;</p>{" "} <BsFillCircleFill className="dot" style={{ visibility: "hidden" }} />
+              </div>
+            </div>
+          <div className="f4 white" onClick={() => { playNote(`F${octave + 1}`); keyDots("f4"); }} >
+              <div> <p>'</p>{" "} <BsFillCircleFill className="dot" style={{ visibility: "hidden" }} />
+              </div>
+            </div>
+            <div className="g4 white" onClick={() => { playNote(`G${octave + 1}`); keyDots("g4"); }} >
+              <div> <p>z</p>{" "} <BsFillCircleFill className="dot" style={{ visibility: "hidden" }} />
+              </div>
+            </div>
+            <div className="a4 white" onClick={() => { playNote(`A${octave + 1}`); keyDots("a4"); }} >
+              <div> <p>x</p>{" "} <BsFillCircleFill className="dot" style={{ visibility: "hidden" }} />
+              </div>
+            </div>
+            <div className="b4 white" onClick={() => { playNote(`B${octave + 1}`); keyDots("b4"); }} >
+              <div> <p>c</p>{" "} <BsFillCircleFill className="dot" style={{ visibility: "hidden" }} />
+              </div>
+            </div>
+            <div className="c5 white" onClick={() => { playNote(`C${octave + 2}`); keyDots("c5"); }} >
+              <div> <p>v</p>{" "} <BsFillCircleFill className="dot" style={{ visibility: "hidden" }} />
+              </div>
+            </div>
+            <div className="cs3 black" onClick={() => { playNote(`C#${octave}`); keyDots("cs3"); }} >
+              <div> <p>w</p>{" "} <BsFillCircleFill className="dot" style={{ visibility: "hidden" }} />
+              </div>
+            </div>
+            <div className="ds3 black" onClick={() => { playNote(`D#${octave}`); keyDots("ds3"); }} >
+              <div> <p>e</p>{" "} <BsFillCircleFill className="dot" style={{ visibility: "hidden" }} />
+              </div>
+            </div>
+            <div className="fs3 black" onClick={() => { playNote(`F#${octave}`); keyDots("fs3"); }} >
+              <div> <p>t</p>{" "} <BsFillCircleFill className="dot" style={{ visibility: "hidden" }} />
+              </div>
+            </div>
+            <div className="gs3 black" onClick={() => { playNote(`G#${octave}`); keyDots("gs3"); }} >
+              <div> <p>y</p>{" "} <BsFillCircleFill className="dot" style={{ visibility: "hidden" }} />
+              </div>
+            </div>
+            <div className="as3 black" onClick={() => { playNote(`A#${octave}`); keyDots("as3"); }} >
+              <div> <p>u</p>{" "} <BsFillCircleFill className="dot" style={{ visibility: "hidden" }} />
+              </div>
+            </div>
+            <div className="cs4 black" onClick={() => { playNote(`C#${octave + 1}`); keyDots("cs4"); }} >
+              <div> <p>i</p>{" "} <BsFillCircleFill className="dot" style={{ visibility: "hidden" }} />
+              </div>
+            </div>
+            <div className="ds4 black" onClick={() => { playNote(`D#${octave + 1}`); keyDots("ds4"); }} >
+              <div> <p>o</p>{" "} <BsFillCircleFill className="dot" style={{ visibility: "hidden" }} />
+              </div>
+            </div>
+            <div className="fs4 black" onClick={() => { playNote(`F#${octave + 1}`); keyDots("fs4"); }} >
+              <div> <p>p</p>{" "}
+              <BsFillCircleFill className="dot" style={{ visibility: "hidden" }} />
+              </div>
+            </div>
+            <div className="gs4 black" onClick={() => { playNote(`G#${octave + 1}`); keyDots("gs4"); }} >
+              <div> <p>[</p>{" "} <BsFillCircleFill className="dot" style={{ visibility: "hidden" }} />
+              </div>
+            </div>
+            <div className="as4 black" onClick={() => { playNote(`A#${octave + 1}`); keyDots("as4");}}>
+              <div> <p>]</p>{" "} <BsFillCircleFill className="dot" style={{ visibility: "hidden" }} />
+              </div>
+            </div>
+            
+          </div>
+         
       
-      <div className="c3 white" onClick={() => {playNote(`C${octave}`);keyDots("c3");}}>
-        <div> <p>a</p>{" "} <BsFillCircleFill className="dot" style={{ visibility: "hidden" }}/>
-        </div>
-      </div>
-      <div className="d3 white" onClick={() => {playNote(`D${octave}`);keyDots("d3");}}>
-        <div> <p>s</p>{" "} <BsFillCircleFill className="dot" style={{ visibility: "hidden" }}/>
-        </div>
-      </div>
-      <div className="e3 white" onClick={() => {playNote(`E${octave}`);keyDots("e3");}}>
-        <div> <p>d</p>{" "} <BsFillCircleFill className="dot" style={{ visibility: "hidden" }}/></div>
-        </div>
-      <div className="f3 white" onClick={() => {playNote(`F${octave}`);keyDots("f3");}}>
-        <div><p>f</p>{" "}<BsFillCircleFill className="dot" style={{ visibility: "hidden" }}/>
-        </div>
-      </div>
-      <div className="g3 white" onClick={() => {playNote(`G${octave}`);keyDots("g3");}}>
-        <div><p>g</p>{" "}<BsFillCircleFill className="dot" style={{ visibility: "hidden" }}/>
-        </div>
-      </div>
-      <div className="a3 white" onClick={() => { playNote(`A${octave}`); keyDots("a3");}}>
-          <div> <p>h</p>{" "} <BsFillCircleFill className="dot" style={{ visibility: "hidden" }} />
-          </div>
-        </div>
-      <div className="b3 white" onClick={() => { playNote(`B${octave}`); keyDots("b3"); }} >
-          <div> <p>j</p>{" "} <BsFillCircleFill className="dot" style={{ visibility: "hidden" }} />
-          </div>
-      </div>
-      <div className="c4 white" onClick={() => { playNote(`C${octave + 1}`); keyDots("c4"); }} >
-          <div> <p>k</p>{" "} <BsFillCircleFill className="dot" style={{ visibility: "hidden" }} />
-          </div>
-        </div>
-      <div className="d4 white" onClick={() => { playNote(`D${octave + 1}`); keyDots("d4"); }} >
-          <div> <p>l</p>{" "} <BsFillCircleFill className="dot" style={{ visibility: "hidden" }} />
-          </div>
-        </div>
-      <div className="e4 white" onClick={() => { playNote(`E${octave + 1}`); keyDots("e4"); }} >
-          <div> <p>;</p>{" "} <BsFillCircleFill className="dot" style={{ visibility: "hidden" }} />
-          </div>
-        </div>
-      <div className="f4 white" onClick={() => { playNote(`F${octave + 1}`); keyDots("f4"); }} >
-          <div> <p>'</p>{" "} <BsFillCircleFill className="dot" style={{ visibility: "hidden" }} />
-          </div>
-        </div>
-        <div className="g4 white" onClick={() => { playNote(`G${octave + 1}`); keyDots("g4"); }} >
-          <div> <p>z</p>{" "} <BsFillCircleFill className="dot" style={{ visibility: "hidden" }} />
-          </div>
-        </div>
-        <div className="a4 white" onClick={() => { playNote(`A${octave + 1}`); keyDots("a4"); }} >
-          <div> <p>x</p>{" "} <BsFillCircleFill className="dot" style={{ visibility: "hidden" }} />
-          </div>
-        </div>
-        <div className="b4 white" onClick={() => { playNote(`B${octave + 1}`); keyDots("b4"); }} >
-          <div> <p>c</p>{" "} <BsFillCircleFill className="dot" style={{ visibility: "hidden" }} />
-          </div>
-        </div>
-        <div className="c5 white" onClick={() => { playNote(`C${octave + 2}`); keyDots("c5"); }} >
-          <div> <p>v</p>{" "} <BsFillCircleFill className="dot" style={{ visibility: "hidden" }} />
-          </div>
-        </div>
-        <div className="cs3 black" onClick={() => { playNote(`C#${octave}`); keyDots("cs3"); }} >
-          <div> <p>w</p>{" "} <BsFillCircleFill className="dot" style={{ visibility: "hidden" }} />
-          </div>
-        </div>
-        <div className="ds3 black" onClick={() => { playNote(`D#${octave}`); keyDots("ds3"); }} >
-          <div> <p>e</p>{" "} <BsFillCircleFill className="dot" style={{ visibility: "hidden" }} />
-          </div>
-        </div>
-        <div className="fs3 black" onClick={() => { playNote(`F#${octave}`); keyDots("fs3"); }} >
-          <div> <p>t</p>{" "} <BsFillCircleFill className="dot" style={{ visibility: "hidden" }} />
-          </div>
-        </div>
-        <div className="gs3 black" onClick={() => { playNote(`G#${octave}`); keyDots("gs3"); }} >
-          <div> <p>y</p>{" "} <BsFillCircleFill className="dot" style={{ visibility: "hidden" }} />
-          </div>
-        </div>
-        <div className="as3 black" onClick={() => { playNote(`A#${octave}`); keyDots("as3"); }} >
-          <div> <p>u</p>{" "} <BsFillCircleFill className="dot" style={{ visibility: "hidden" }} />
-          </div>
-        </div>
-        <div className="cs4 black" onClick={() => { playNote(`C#${octave + 1}`); keyDots("cs4"); }} >
-          <div> <p>i</p>{" "} <BsFillCircleFill className="dot" style={{ visibility: "hidden" }} />
-          </div>
-        </div>
-        <div className="ds4 black" onClick={() => { playNote(`D#${octave + 1}`); keyDots("ds4"); }} >
-          <div> <p>o</p>{" "} <BsFillCircleFill className="dot" style={{ visibility: "hidden" }} />
-          </div>
-        </div>
-        <div className="fs4 black" onClick={() => { playNote(`F#${octave + 1}`); keyDots("fs4"); }} >
-          <div> <p>p</p>{" "}
-           <BsFillCircleFill className="dot" style={{ visibility: "hidden" }} />
-          </div>
-        </div>
-        <div className="gs4 black" onClick={() => { playNote(`G#${octave + 1}`); keyDots("gs4"); }} >
-          <div> <p>[</p>{" "} <BsFillCircleFill className="dot" style={{ visibility: "hidden" }} />
-          </div>
-        </div>
-        <div className="as4 black" onClick={() => { playNote(`A#${octave + 1}`); keyDots("as4");}}>
-          <div> <p>]</p>{" "} <BsFillCircleFill className="dot" style={{ visibility: "hidden" }} />
-          </div>
-        </div>
-        
-      </div>
-      <div className="controls d-flex justify-content-center pb-4 pt-2">
-        <div className="octave text-center mx-5 mt-5">
-          <h6>Change Octave</h6>
-          <div className="btn-group" role="group" aria-label="Basic example">
-            <button type="button" onClick={() => setOctave(octave - 1)} className="btn btn-outline-dark" >
-            Down<BsChevronDown /></button>
-            <button type="button" onClick={() => setOctave(octave + 1)} className="btn btn-outline-dark"  > Up <BsChevronUp />
-            </button>
-          </div> 
-        </div>
-        <div className="octave text-center mx-5 mt-5">
-          <h6>Change Note Duration</h6>
+      <div className="controls d-flex justify-content-center pb-3 pt-2">
+        <div className="octave text-center mx-5 mt-4">
+          <h6>Note Duration</h6>
           <div className="btn-group" role="group" aria-label="Basic example">
             <button type="button" onClick={() => setDur(dur - 1)} className="btn btn-outline-dark" >
             Longer<BsChevronDown /></button>
@@ -293,9 +296,16 @@ export default function SynthTest({user}) {
         </div>
       </div>
       </div>
-    
-      <Effects synth={synth} />
-      <Record gainNode={gainNode} user={user}/>
+         <button type="button" style={{"border":"none"}}onClick={() => setOctave(octave + 1)} className="oct2"><span className="tool2"> {checked? <><p className="tooltips">Up one octave</p></>:<></>}</span><BsArrowRightCircle size={30} className="ms-2 mt-5 octave-arrow"/></button>
+      
+      </div>
+      <Effects synth={synth} /><span className="tool effect-tool">{checked? <><p className="tooltips d-inline-flex">Enable or disable effects</p></>:<></>}</span> <span className="tool effect-tool2">{checked? <><p className="tooltips d-inline-flex">Adjust effects with slider</p></>:<></>}</span>
+      {user.username? <>
+        <Record gainNode={gainNode} user={user}/><span className="tool record-tool">{checked? <><p className="tooltips d-inline-flex">Record audio</p></>:<></>}</span> <span className="tool record-tool2">{checked? <><p className="tooltips d-inline-flex">Save audio to profile</p></>:<></>}</span> </>
+          :
+          <><p className="mt-5 text-center">To save and store your masterpieces, <Link to='/signup'>Sign Up</Link> for PianoBox</p>
+          </>}
+      
       </div>
     </>
   );

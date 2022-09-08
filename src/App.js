@@ -119,7 +119,7 @@ export default function App() {
                <Nav user={user} logMeOut={logMeOut}/>
           
                <Routes >
-                 <Route path='/' element={<Home user={user}/>}/>
+                 <Route path='/' element={<SynthTest user={user}/>}/>
                  <Route path='/contact' element={<Contact/>}/>
                  <Route path='/news' element={<News/>}/>
                  <Route path='/feed' element={<IG/>}/>

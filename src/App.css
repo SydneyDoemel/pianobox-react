@@ -3,10 +3,12 @@ body {
   }
   .app-body{
     padding-bottom: 2.5rem;
+    background-color: rgb(240, 241, 241);
   }
-  .login-body{
+  .login-body, .signup-body{
     position: relative;
     min-height: 100vh;
+    background-color: rgb(240, 241, 241);
   }
 
 .btn:focus {
@@ -73,7 +75,10 @@ p.login-text{
 p.login-text:hover{
 color: rgb(255, 17, 61);
 }
-
+input.form-control{
+  background-color: rgb(240, 241, 241);
+  border: 1px solid rgb(25, 1, 102);
+}
 ul.dropdown-menu.me-2{
   background-color: rgb(25, 1, 102);
   color:  rgb(240, 241, 241);

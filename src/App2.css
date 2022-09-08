@@ -114,10 +114,23 @@
     border: solid 2px rgb(25, 1, 102);
    width: 41rem;
    border-radius: 10px;
-   margin: auto;
+   margin-left: 0;
+   margin-right: 0;
+
    
    }
-
+   /* .piano::before{
+    content: "hi";
+    position: relative;
+    right: 5vw;
+    top: 25vh;
+   }
+   .piano::after{
+    content: "hi";
+    position: relative;
+    left:46vw;
+    bottom: 31vh;
+   } */
    .profile-audio-title{
     background-color:rgb(25, 1, 102);
     height: 1.5rem;
@@ -174,10 +187,24 @@
     height: auto;
     font-size: .9rem;
   }
+  
+.oct1:hover .tool{
+  visibility: visible;
+}
+.oct2:hover .tool2{
+  visibility: visible;
+}
+
+
+.tool, .tool2{
+  visibility: hidden;
+}
+
 }
 button.accordion-button, .accordion-button.collapsed{
- background-color: rgb(255, 17, 61);
+ background-color: rgba(255, 17, 61,.3);
 color:  rgb(25, 1, 102);
+border: 1px solid rgb(255,17,1);
 font-size: 1.3rem;
 font-weight: bold;
 }
@@ -249,3 +276,63 @@ audio::-webkit-media-controls-panel{
   background-color:rgba(255, 17, 61, 0);
   
  }
+
+
+ .octave-arrow:hover{
+  color: rgb(255, 17, 61);
+  
+ }
+/* 
+.oct1:hover .tool{
+  visibility: visible;
+}
+.oct2:hover .tool2{
+  visibility: visible;
+}
+
+.octave-arrow::before{
+  content:"hi";
+  position: relative;
+}
+
+.tool, .tool2{
+  visibility: hidden;
+} */
+
+.oct1, .oct2{
+  border: 1px solid rgb(25, 1, 102);
+}
+
+.effect-tool{
+  position: relative;
+  bottom: 10vh;
+  left: 5vw
+}
+
+.effect-tool2{
+  position: relative;
+  bottom: 10vh;
+  left: 63vw;
+}
+
+.record-tool{
+  position: relative;
+  bottom: 5vh;
+  left: 16vw;
+}
+
+.record-tool2{
+  position: relative;
+  bottom: 5vh;
+  left: 69vw;
+}
+
+
+.tooltips{
+  background-color:  rgb(25, 1, 102);
+  color: rgb(240, 241, 241);
+  border: 1px solid rgb(25, 1, 102);
+  border-radius: 10px;
+  padding: 0 10px 0 10px;
+  margin: 0;
+}
