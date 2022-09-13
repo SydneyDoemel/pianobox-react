@@ -6,14 +6,14 @@ import "../App2.css";
 import { BsMicFill, BsFillStopCircleFill, BsChevronUp, BsChevronDown, BsFillCircleFill } from "react-icons/bs";
 import { Link } from "react-router-dom";
 
-
+let recorder = null
 export default function Home({user}) {
   
   const [octave, setOctave] = useState(3);
   const [chunks, setChunks] = useState([]);
   const gainNode = new Tone.Gain(1).toDestination();
   const synth = new Tone.PolySynth().connect(gainNode);
-  
+
   
  
   const playNote = useCallback(
@@ -151,7 +151,6 @@ export default function Home({user}) {
     [playNote, setOctave, octave]
   );
 
-
   useEffect(() => {
     document.addEventListener("keydown", handleKeyPress);
     return () => {
@@ -159,12 +158,19 @@ export default function Home({user}) {
     };
   }, [handleKeyPress]);
 
+ const save = async()=>{
+  const recording = await recorder.stop();
+	// download the recording by creating an anchor element and blob url
+	const url = URL.createObjectURL(recording);
+	const anchor = document.createElement("a");
+	anchor.download = "recording.webm";
+	anchor.href = url;
+	anchor.click();
+ }
   return (
     <>
     <div className="body rotate">
- 
     <div className="piano">
-     
     <div className="container4">
       <div className="c3 white" onClick={() => {playNote(`C${octave}`);keyDots("c3");}}>
         <div> <p>a</p>{" "} <BsFillCircleFill className="dot" style={{ visibility: "hidden" }}/>
@@ -283,23 +289,14 @@ export default function Home({user}) {
           <button className="btn btn-light ml-5 " onClick={() => myDelay()}>Delay</button>
         </div> */}
       </div>
-     
+
       </div>
       {user.username ?
       <></>
-        
         :
         <><p className="mt-5 text-center">To save and store your masterpieces, <Link to='/signup'>Sign Up</Link> for PianoBox</p></>
       }
-
-
-
-
       </div>
-
-       
-       
-   
     </>
   );
 }

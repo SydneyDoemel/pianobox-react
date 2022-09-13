@@ -6,7 +6,7 @@ export default function Footer() {
     <div><footer className=" text-center text-lg-start">
   
     <div className="text-center p-3 copyright light-color" >
-      © 2020 Copyright: 
+      
       <Link className="red-color" to='http://sydneydoemel.com'> Sydneydoemel.com</Link>
     </div>
    

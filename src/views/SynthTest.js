@@ -170,7 +170,13 @@ export default function SynthTest({user}) {
   return (
     <>
     <div className="body ">
-      <input type="checkbox" checked={checked}  onChange={() => setChecked((prev) => !prev)}></input>
+      <div className="d-flex align-items-center control-group">
+        <label htmlFor="help" className="ms-5 me-3 mt-1 control control-checkbox">Info View
+        <input type="checkbox" id="help" className="mt-1 checkbox" checked={checked}  onChange={() => setChecked((prev) => !prev)}></input>
+        <div className="control_indicator"></div>
+        </label>
+      
+      </div>
       <p className="tool text-center">{checked? <><p className="tooltips d-inline-flex">Use corresponding keys to play</p></>:<></>}</p>
     <div className="d-flex justify-content-center align-items-center">
      

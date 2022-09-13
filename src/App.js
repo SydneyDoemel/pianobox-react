@@ -21,6 +21,8 @@ import Profile from './views/Profile';
 import { useState, useEffect } from 'react';
 import Audiotry from './views/Audiotry';
 import Footer from './components/Footer';
+import Profile2 from './views/Profile2';
+import Settings from './views/Settings';
 
 
 
@@ -119,7 +121,7 @@ export default function App() {
                <Nav user={user} logMeOut={logMeOut}/>
           
                <Routes >
-                 <Route path='/' element={<SynthTest user={user}/>}/>
+                 <Route path='/' element={<Home user={user}/>}/>
                  <Route path='/contact' element={<Contact/>}/>
                  <Route path='/news' element={<News/>}/>
                  <Route path='/feed' element={<IG/>}/>
@@ -131,10 +133,12 @@ export default function App() {
                  <Route path='/todo' element={<ToDoList />} />
                  <Route path='/shop' element={<Shop user={user}/>} />
                  <Route path='/profile' element={<Profile user={user}/>}/>
+                 <Route path='/profile2' element={<Profile2 user={user}/>}/>
                  <Route path='/piano' element={<SynthTest user={user}/>}/>
                  <Route path='/audiotry' element={<Audiotry user={user}/>}/>
                  <Route path='/cart' element={<Cart user={user}/>} />
                  <Route path='/shop/:itemId' element={<SingleItem />} />
+                 <Route path='/settings' element={<Settings logMeOut={logMeOut} user={user}/>} />
               
             
                </Routes>

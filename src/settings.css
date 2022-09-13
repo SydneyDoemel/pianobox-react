@@ -1,0 +1,42 @@
+.settings-btn{
+    min-width: 14rem;
+    width: 50%;
+    height: auto;
+   
+}
+
+.settings-body{
+    height: 100vh;
+}
+
+
+.card{
+    margin-top: 5vh;
+    max-width: 60rem;
+    width: 100%;
+    height: auto;
+}
+
+input[type=text] {
+    border: 1px solid rgb(25, 1, 102);
+    border-radius: 7px;
+    background-color: rgb(240, 241, 241);
+    color: rgb(25, 1, 102);
+  }
+
+  input[type=email] {
+    border: 1px solid rgb(25, 1, 102);
+    border-radius: 7px;
+    background-color: rgb(240, 241, 241);
+    color: rgb(25, 1, 102);
+  } 
+  input[type=password] {
+    border: 1px solid rgb(25, 1, 102);
+    border-radius: 7px;
+    background-color: rgb(240, 241, 241);
+    color: rgb(25, 1, 102);
+  }
+
+  div.modal-body, div.modal-header{
+    background-color: rgb(240, 241, 241);
+  }

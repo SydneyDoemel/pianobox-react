@@ -1,9 +1,8 @@
-body {
-    font-family: 'Libre Baskerville', serif;
-  }
+
   .app-body{
     padding-bottom: 2.5rem;
     background-color: rgb(240, 241, 241);
+    font-family: 'Source Code Pro', monospace;
   }
   .login-body, .signup-body{
     position: relative;
@@ -94,11 +93,21 @@ a.nav-link.dropdown-toggle.greeting-btn{
   font-weight: bold;
   
 }
+
+a.nav-link.dropdown-toggle.greeting-btn span{
+  color: rgb(255, 17, 61);
+  
+}
+
 a.nav-link.dropdown-toggle.greeting-btn:hover{
   background-color: rgb(240, 241, 241);
   color: rgb(255, 17, 61);
   border: none;
  
+}
+a.nav-link.dropdown-toggle.greeting-btn span:hover{
+  color: rgb(240, 241, 241);
+  
 }
 
 @media only screen and (max-width: 1300px){

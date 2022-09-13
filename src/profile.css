@@ -1,0 +1,13 @@
+.profile-btn{
+    height:2.5rem;
+}
+
+.card-btns{
+    display: flex;
+    justify-content: space-around;
+}
+@media only screen and (max-width: 768px){
+    .card-btns{
+        flex-wrap: wrap;
+    }
+}

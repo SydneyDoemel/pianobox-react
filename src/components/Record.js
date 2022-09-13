@@ -26,11 +26,12 @@ export default function Record({gainNode, user}) {
         const audioBlob = await fetch(mediaBlobUrl).then((r) => r.blob());
         const audioFile = new File([audioBlob], "voice.wav", { type: "audio/wav" });
         setAudioUpload(audioFile);
-        if (audioUpload === null) return;
+        if (audioFile === null) return;
         const audioRef = ref(storage, `${user.username}/${title}_${v4()}=${today.getMonth()}-${today.getDate()}-${today.getFullYear()}`);
         uploadBytes(audioRef, audioFile).then(() => {
           console.log("audio uploaded");
           console.log(audioFile);
+
         });
       };
     
@@ -57,7 +58,7 @@ export default function Record({gainNode, user}) {
             <h5 className="modal-title" id="exampleModalLabel">
               New Audio
             </h5>
-            <button type="button" onClick={()=>{enablePiano()}} className="btn-close btn-outline-dark" data-bs-dismiss="modal" aria-label="Close" ></button>
+            <button type="button" onClick={()=>{mutePiano()}} className="btn-close btn-outline-dark" data-bs-dismiss="modal" aria-label="Close" ></button>
           </div>
           <form onSubmit={(e) => { handleSave(e); enablePiano()}}>
             <div className="modal-body">
