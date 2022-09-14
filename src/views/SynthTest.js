@@ -183,7 +183,7 @@ export default function SynthTest({user}) {
     <button type="button" style={{"border":"none"}}  className="" onClick={() => setOctave(octave - 1)} ><span className="tool">
       {checked? <><p className="tooltips">Down one octave</p></>:<></>}</span><BsArrowLeftCircle size={30} className="me-2 mt-5 octave-arrow"/> </button>
 
-    <div className="piano mt-3">
+    <div className="piano ">
    
         <div className="container4">
           

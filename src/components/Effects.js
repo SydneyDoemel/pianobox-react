@@ -183,13 +183,19 @@ const stopPhaser=()=> {
 
 
   return (
-    <div>
+    <div className="flex-controls">
+      <div className="prev-button">
+  <button className="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+    <span className="carousel-control-prev-icon "  aria-hidden="true"></span>
+    <span className="visually-hidden">Previous</span>
+  </button>
+  </div>
        <div className="effects mx-auto ">
-      <div id="carouselExampleControls" className="carousel slide" data-bs-interval="false">
-  <div className="carousel-inner">
-    <div className="carousel-item active">
+      <div id="carouselExampleControls" className="carousel slide " data-bs-interval="false">
+  <div className="carousel-inner ">
+    <div className="carousel-item active ">
       
-       <div className="pg1 d-flex">
+       <div className="pg1 ">
         <div className="pitch-shift mx-4">
           <h6 className="text-center m-2">Pitch Shift</h6>
           <div className="btn-group m-2" role='group'>
@@ -230,8 +236,8 @@ const stopPhaser=()=> {
        
           </div>
     </div>
-    <div className="carousel-item">
-    <div className="pg1 d-flex">
+    <div className="carousel-item ">
+    <div className="pg2 ">
         <div className="pitch-shift mx-4">
           <h6 className="text-center m-2">Distortion</h6>
           <div className="btn-group m-2" role='group'>
@@ -272,20 +278,18 @@ const stopPhaser=()=> {
        
           </div>
     </div>
-    <div className="carousel-item">
-      
-    </div>
+    
   </div>
-  <button className="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
-    <span className="carousel-control-prev-icon "  aria-hidden="true"></span>
-    <span className="visually-hidden">Previous</span>
-  </button>
+  
+ 
+</div>
+</div>
+<div className="next-button">
   <button className="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
     <span className="carousel-control-next-icon" aria-hidden="true"></span>
     <span className="visually-hidden">Next</span>
   </button>
-</div>
-</div>
+  </div>
     </div>
   )
 }

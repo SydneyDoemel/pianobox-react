@@ -36,7 +36,7 @@ export default function Record({gainNode, user}) {
       };
     
   return (
-    <div><div className="d-flex flex-wrap record justify-content-center align-items-center mt-3">
+    <div><div className=" record justify-content-center align-items-center mt-3">
     <p className="mt-2 status alert recordalert rec">
       -- {status} --</p>
 
@@ -46,9 +46,9 @@ export default function Record({gainNode, user}) {
       <BsStopFill className="rec" size={30}/>
       
     </button>
-    <audio src={mediaBlobUrl} controls loop />
+    <audio src={mediaBlobUrl} className="mb-2 me-3 ms-3 mt-1" controls loop />
     
-    <button type="button" onClick={() => { mutePiano() }} className="btn btn-outline-dark ms-3" data-bs-toggle="modal" data-bs-target="#exampleModal" > Save Audio
+    <button type="button" onClick={() => { mutePiano() }} className="btn btn-outline-dark ms-3 mb-2 save-audio-btn" data-bs-toggle="modal" data-bs-target="#exampleModal" > Save Audio
     </button>
 
     <div className="modal fade " id="exampleModal" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" >

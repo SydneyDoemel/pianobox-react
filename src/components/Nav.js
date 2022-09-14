@@ -20,7 +20,7 @@ export default class Nav extends Component {
                 <Link className="nav-link active" aria-current="page" to="/audiotry" style={{color: 'rgb(240, 241, 241)'}}>Test</Link>
               </li> */}
               {this.props.user.username? <> 
-                <li className="nav-item ddi mx-2"><Link className="nav-link" to="/profile2" style={{color: 'rgb(240, 241, 241)'}}><p className='color-text'>Profile</p></Link></li>
+                <li className="nav-item ddi mx-2"><Link className="nav-link" to="/profile2" style={{color: 'rgb(240, 241, 241)'}}><p className='color-text'>Library</p></Link></li>
               <li className="nav-item piano-link">
                 <Link className="nav-link active mx-2" to="/settings" style={{color: 'rgb(240, 241, 241)'}}><p className='color-text'>Settings</p></Link>
               </li>

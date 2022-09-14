@@ -266,10 +266,17 @@ button.btn.btn-outline-dark:focus{
 .record{
   margin-left: 25vw;
   margin-right: 25vw;
-  
-  
+  display: flex;
+  flex-wrap: nowrap; 
 }
 
+@media only screen and (max-width: 1255px){
+  .record{
+    flex-wrap: wrap;
+    justify-content: center;
+    padding-bottom: 4px;
+  }
+}
 
 
 audio::-webkit-media-controls-panel{

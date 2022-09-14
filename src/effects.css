@@ -84,7 +84,7 @@ input[type="range"]:focus::-webkit-slider-thumb {
    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='rgb(25, 1, 102)' viewBox='0 0 8 8'%3E%3Cpath d='M2.75 0l-1.5 1.5 2.5 2.5-2.5 2.5 1.5 1.5 4-4-4-4z'/%3E%3C/svg%3E") !important;
  
  }
- button.carousel-control-prev{
+ /* button.carousel-control-prev{
   position: relative;
   left: -120px;
   top: -50px;
@@ -93,4 +93,56 @@ input[type="range"]:focus::-webkit-slider-thumb {
   position: relative;
   right: -740px;
   top: -88px;
+ } */
+
+ button.carousel-control-next, button.carousel-control-prev{
+  height: 2rem;
+  position: relative;
+
+
  }
+ button.carousel-control-next{
+  top: -12vh;
+  left:75vw;
+ }
+ button.carousel-control-prev{
+  top: 15vh;
+  left:10vw;
+ }
+.pg1, .pg2{
+  display: flex;
+  flex-wrap: nowrap;
+} 
+@media only screen and (max-width: 1260px){
+  .pg1, .pg2{
+    display: flex;
+    flex-wrap:wrap;
+  } 
+  div.pg1{
+    margin-left: 10vh;
+   }
+}
+@media only screen and (max-width: 1150px){
+ 
+  div.pg1{
+   margin-left: 6vh;
+  }
+}
+@media only screen and (max-width: 1050px){
+ 
+  div.pg1{
+   margin-left: 8vh;
+  }
+}
+@media only screen and (max-width: 946px){
+ 
+  div.pg1{
+   margin-left: 10vh;
+  }
+}
+@media only screen and (max-width: 900px){
+ 
+  div.pg1{
+   margin-left: 4vh;
+  }
+}

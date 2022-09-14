@@ -9,7 +9,8 @@ export default class SignUp extends Component {
     
       this.state = {
          redirect:false,
-         message: false
+         message: false,
+         error:false,
       }
     }
     
@@ -24,6 +25,7 @@ export default class SignUp extends Component {
         }
     }
     sendSignUpInfo = async (e) => {
+        try{
         e.preventDefault();
         
 
@@ -45,7 +47,9 @@ export default class SignUp extends Component {
         });
         const data = await res.json();
         console.log(data)
-        this.setState({redirect: true})
+        this.setState({redirect: true})}catch (error) {
+            this.setState({error: true});
+        }
         
     };
     
@@ -80,7 +84,9 @@ export default class SignUp extends Component {
             </form>
             
             <><p className="mt-5 text-center login">Already have an account? <Link to='/login' className='signup-link'>Log In</Link></p></>
-            <>{this.message()}</>
+            { this.state.error ? <><div className="alert alert-danger text-center" role="alert">
+                 Something went wrong. Please try a different username or email.
+                </div></>:<></>}
             </div>
             </div>
         )

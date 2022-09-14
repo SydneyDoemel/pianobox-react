@@ -46,7 +46,7 @@ export default function Profile2({ user }) {
     });
     const data = await res.json();
     console.log(data);
-  
+    setForceRender(prev => prev + 1);
   };
 
   const removefromFolder = async (e) => {
@@ -66,6 +66,8 @@ export default function Profile2({ user }) {
     });
     const data = await res.json();
     console.log(data);
+    setForceRender(prev => prev + 1);
+    getOneFolder(e.target.foldername.value)
    
   };
 
@@ -108,19 +110,20 @@ export default function Profile2({ user }) {
     const data = await res.json();
     console.log(data);
     setFolderInfo(data);
+    
   };
 
   useEffect(() => {
     getFolders();
-  }, []);
+  }, [forceRender]);
   useEffect(() => {}, [folderInfo]);
 
   const listFolders = async () => {
     listAll(audioListRef).then((response) => {
       console.log(response);
+      
       response.items.forEach((item) => {
         console.log(typeof files);
-
         if (files.includes(item._location.path_)) {
           getDownloadURL(item).then((url) => {
             setFilterFolders((prev) => [...prev, [url, item]]);
@@ -134,17 +137,17 @@ export default function Profile2({ user }) {
     listFolders();
 
     console.log("built");
-  }, [files]);
+  }, [files, forceRender]);
 
   return (
     <>
       <div className="profile-body" id="profile-bod">
-       
+      {audioList? <>
       <ul className="nav nav-tabs" id="myTab" role="tablist">
       <li className="nav-item" role="presentation">
-        <button className="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button" role="tab" aria-controls="home" aria-selected="true">All Recordings</button>
+        <button onClick={()=>getOneFolder()} className="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button" role="tab" aria-controls="home" aria-selected="true">All Recordings</button>
       </li>
-
+      
         {folders? <>
         {folders.map((fold,i)=>{
         return(
@@ -171,7 +174,7 @@ export default function Profile2({ user }) {
                               <br />
                               <div className="card-btns">
                               <audio src={url[0]} controls />
-                                <button onClick={() => { deleteAudio(url[1]._location.path_); setToggle(!toggle); }}
+                                <button onClick={() => { deleteAudio(url[1]._location.path_); setToggle(!toggle);}}
                                   className="btn btn-outline-danger mr-5 profile-btn" >
                                   Delete
                                 </button>
@@ -214,9 +217,12 @@ export default function Profile2({ user }) {
                       })}
                     
               </div>
+              
             </div>
+            
           
       </div>
+      
       {folderInfo.folder_info ? (
             <>
              
@@ -237,8 +243,8 @@ export default function Profile2({ user }) {
               </li>
             </div>
         </div>
-     
-      )})}
+        )})}
+      
             
               
             </>
@@ -248,7 +254,7 @@ export default function Profile2({ user }) {
         
       </div>
 
-         
+              </>:<><h4 className="mt-4 text-center">No saved audio clips.</h4></>}
         </div>
       
     </>

@@ -95,7 +95,7 @@ a.nav-link.dropdown-toggle.greeting-btn{
 }
 
 a.nav-link.dropdown-toggle.greeting-btn span{
-  color: rgb(255, 17, 61);
+  opacity:0;
   
 }
 
@@ -105,10 +105,7 @@ a.nav-link.dropdown-toggle.greeting-btn:hover{
   border: none;
  
 }
-a.nav-link.dropdown-toggle.greeting-btn span:hover{
-  color: rgb(240, 241, 241);
-  
-}
+
 
 @media only screen and (max-width: 1300px){
   a.nav-link.signup-btn{

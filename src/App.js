@@ -26,62 +26,10 @@ import Settings from './views/Settings';
 
 
 
-// export default class App extends Component {
-//   constructor() {
-//     super();
-//     state = {
-//       posts: [],
-//       user: {}
-//     }
-//   }
-  
-
-  
-//   render() {
-//     return (
-//       <BrowserRouter>
-//         <div>
-//           <Nav />
-         
-//           <Routes>
-//             <Route path='/' element={<Home />}/>
-//             <Route path='/contact' element={<Contact/>}/>
-//             <Route path='/news' element={<News/>}/>
-//             <Route path='/feed' element={<IG/>}/>
-//             <Route path='/login' element={<Login logMeIn={logMeIn}/>}/>
-//             <Route path='/signup' element={<SignUp/>}/>
-//             <Route path='/posts/create' element={<CreatePost user={user}/>}/>
-//             <Route path='/posts/update/:postId' element={<UpdatePost user={user}/>} />
-//             <Route path='/posts/:postId' element={<SinglePost user={user}/>}/>
-//             <Route path='/todo' element={<ToDoList />} />
-//             <Route path='/shop' element={<Shop user={user}/>} />
-//             <Route path='/profile' element={<Profile user={user}/>}/>
-//             <Route path='/piano' element={<SynthTest user={user}/>}/>
-//             <Route path='/cart' element={<Cart user={user}/>} />
-//             <Route path='/shop/:itemId' element={<SingleItem />} />
-            
-            
-//           </Routes>
-
-
-//         </div>
-//       </BrowserRouter>
-//     )
-//   }
-// }
-
-
-
 
 
 export default function App() {
-  // constructor() {
-  //   super();
-  //   state = {
-  //     user: {},
-  //     cart: []
-  //   }
-  // }
+
   const getUserFromLocalStorage = () => {
     const foundUser = localStorage.getItem('user')
     if (foundUser){
@@ -90,16 +38,7 @@ export default function App() {
     return {}
   };
 
-
   const [user, setUser] = useState(getUserFromLocalStorage())
-  
-
-  // logMeIn = (user) => {
-  //   setState({
-  //     user: user
-  //   })
-  // }
-
   const logMeIn = (user) => {
     setUser(user)
     localStorage.setItem('user', JSON.stringify(user))
@@ -108,12 +47,6 @@ export default function App() {
     setUser({})
     localStorage.removeItem('user')
   }
-
-  
-
- 
-
-
 
   return (
     <BrowserRouter >
