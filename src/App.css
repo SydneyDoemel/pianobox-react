@@ -2,7 +2,7 @@
   .app-body{
     padding-bottom: 2.5rem;
     background-color: rgb(240, 241, 241);
-    font-family: 'Source Code Pro', monospace;
+    font-family: 'Poppins', sans-serif;
   }
   .login-body, .signup-body{
     position: relative;

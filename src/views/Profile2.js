@@ -13,6 +13,7 @@ export default function Profile2({ user }) {
   const [folders, setFolders] = useState([]);
   const [files, setFiles] = useState([]);
   const [toggle, setToggle] = useState(false);
+  const [forceRender, setForceRender] = useState(0); // <=== Create new forceRender state
   const [filterFolders, setFilterFolders] = useState([]);
   const [folderInfo, setFolderInfo] = useState({});
   const audioListRef = ref(storage, `${user.username}`);
@@ -24,9 +25,10 @@ export default function Profile2({ user }) {
     const thisAudio = ref(storage, name);
     deleteObject(thisAudio).then(() => {
       console.log("File deleted successfully");
+      setForceRender(prev => prev + 1);
      
     });
-    setToggle(!toggle);
+    
   };
   const handleSaveToFolder = async (e) => {
     e.preventDefault();
@@ -44,7 +46,7 @@ export default function Profile2({ user }) {
     });
     const data = await res.json();
     console.log(data);
-    setToggle(!toggle);
+  
   };
 
   const removefromFolder = async (e) => {
@@ -64,20 +66,16 @@ export default function Profile2({ user }) {
     });
     const data = await res.json();
     console.log(data);
-    setToggle(!toggle);
+   
   };
 
-  const showFolders = () => {
-    if (folderInfo) {
-      return folders.map((p, i) => {
-        <SingleFolder key={i} folder={p} user={user} />;
-      });
-    }
-  };
+ 
   const listAllAudio = () =>{
      // const audioListRef = ref(storage, `${user.username}`)
      listAll(audioListRef).then((response) => {
       console.log(response);
+      const emptylst=[]
+      setAudioList(emptylst)
       response.items.forEach((item) => {
         getDownloadURL(item).then((url) => {
           setAudioList((prev) => [...prev, [url, item]]);
@@ -85,20 +83,12 @@ export default function Profile2({ user }) {
       });
      
     });
-    setToggle(!toggle)
+ 
   }
   useEffect(() => {
-    // // const audioListRef = ref(storage, `${user.username}`)
-    // listAll(audioListRef).then((response) => {
-    //   console.log(response);
-    //   response.items.forEach((item) => {
-    //     getDownloadURL(item).then((url) => {
-    //       setAudioList((prev) => [...prev, [url, item]]);
-    //     });
-    //   });
-    // });
+   
     listAllAudio()
-  }, []);
+  }, [ forceRender]);
 
   const getFolders = async () => {
     if (audioList !== []) {
@@ -119,9 +109,8 @@ export default function Profile2({ user }) {
     console.log(data);
     setFolderInfo(data);
   };
-  useEffect(() => {
-    // const audioListRef = ref(storage, `${user.username}`)
 
+  useEffect(() => {
     getFolders();
   }, []);
   useEffect(() => {}, [folderInfo]);
@@ -145,7 +134,7 @@ export default function Profile2({ user }) {
     listFolders();
 
     console.log("built");
-  }, [files, toggle]);
+  }, [files]);
 
   return (
     <>
@@ -182,11 +171,11 @@ export default function Profile2({ user }) {
                               <br />
                               <div className="card-btns">
                               <audio src={url[0]} controls />
-                                <button onClick={() => { deleteAudio(url[1]._location.path_); forceUpdate(Math.random()); }}
+                                <button onClick={() => { deleteAudio(url[1]._location.path_); setToggle(!toggle); }}
                                   className="btn btn-outline-danger mr-5 profile-btn" >
                                   Delete
                                 </button>
-                                <button type="button" onClick={()=>setInput(url[1]._location.path_)} className="btn btn-outline-dark profile-btn" data-toggle="modal" data-target="#exampleModal" >
+                                <button type="button" onClick={()=>setInput(url[1]._location.path_)} className="btn btn-dark profile-btn" data-toggle="modal" data-target="#exampleModal" >
                                   Add to Folder
                                 </button>
                                 <button onClick={() => handleSaveToFolder(url)} className="btn btn-outline-dark mr-5 profile-btn" >
@@ -238,7 +227,7 @@ export default function Profile2({ user }) {
                                 {dateforme.exec(fold.filename)}</h5>
               <li className="list-group-item d-inline-flex align-items-center">
                 <audio src={fold.url} controls />
-                <button  onClick={() => { deleteAudio(fold.filename); forceUpdate(Math.random()); }} className="btn btn-outline-danger">Delete</button>
+                <button  onClick={() => { deleteAudio(fold.filename)}} className="btn btn-outline-danger">Delete</button>
                 <form onSubmit={(e) => removefromFolder(e)}>
                 <button className="btn btn-outline-dark">Remove From Folder</button>
                 <input type = "hidden" name = "filename" value ={fold.filename} />

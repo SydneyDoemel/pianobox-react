@@ -180,7 +180,8 @@ export default function SynthTest({user}) {
       <p className="tool text-center">{checked? <><p className="tooltips d-inline-flex">Use corresponding keys to play</p></>:<></>}</p>
     <div className="d-flex justify-content-center align-items-center">
      
-    <button type="button" style={{"border":"none"}}  className="" onClick={() => setOctave(octave - 1)} ><span className="tool">{checked? <><p className="tooltips">Down one octave</p></>:<></>}</span><BsArrowLeftCircle size={30} className="me-2 mt-5 octave-arrow"/> </button>
+    <button type="button" style={{"border":"none"}}  className="" onClick={() => setOctave(octave - 1)} ><span className="tool">
+      {checked? <><p className="tooltips">Down one octave</p></>:<></>}</span><BsArrowLeftCircle size={30} className="me-2 mt-5 octave-arrow"/> </button>
 
     <div className="piano mt-3">
    
@@ -302,12 +303,17 @@ export default function SynthTest({user}) {
         </div>
       </div>
       </div>
-         <button type="button" style={{"border":"none"}}onClick={() => setOctave(octave + 1)} className="oct2"><span className="tool2"> {checked? <><p className="tooltips">Up one octave</p></>:<></>}</span><BsArrowRightCircle size={30} className="ms-2 mt-5 octave-arrow"/></button>
+         <button type="button" style={{"border":"none"}}onClick={() => setOctave(octave + 1)} className="oct2"><span className="tool2">
+          {checked? <><p className="tooltips">Up one octave</p></>:<></>}</span><BsArrowRightCircle size={30} className="ms-2 mt-5 octave-arrow"/></button>
       
       </div>
-      <Effects synth={synth} /><span className="tool effect-tool">{checked? <><p className="tooltips d-inline-flex">Enable or disable effects</p></>:<></>}</span> <span className="tool effect-tool2">{checked? <><p className="tooltips d-inline-flex">Adjust effects with slider</p></>:<></>}</span>
+      <Effects synth={synth} /><span className="tool effect-tool">
+        {checked? <><p className="tooltips d-inline-flex">Enable or disable effects</p></>:<></>}</span>
+        <span className="tool effect-tool2">{checked? <><p className="tooltips d-inline-flex">Adjust effects with slider</p></>:<></>}</span>
       {user.username? <>
-        <Record gainNode={gainNode} user={user}/><span className="tool record-tool">{checked? <><p className="tooltips d-inline-flex">Record audio</p></>:<></>}</span> <span className="tool record-tool2">{checked? <><p className="tooltips d-inline-flex">Save audio to profile</p></>:<></>}</span> </>
+        <Record gainNode={gainNode} user={user}/>
+        <span className="tool record-tool">{checked? <><p className="tooltips d-inline-flex">Record audio</p></>:<></>}</span>
+          <span className="tool record-tool2">{checked? <><p className="tooltips d-inline-flex">Save audio to profile</p></>:<></>}</span> </>
           :
           <><p className="mt-5 text-center">To save and store your masterpieces, <Link to='/signup'>Sign Up</Link> for PianoBox</p>
           </>}

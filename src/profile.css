@@ -11,3 +11,20 @@
         flex-wrap: wrap;
     }
 }
+
+button.btn.btn-outline-primary.mx-3:hover{
+    background-color:rgb(25, 1, 102);
+     
+     color:rgb(240, 241, 241);
+   }
+button.btn.btn-dark.profile-btn{
+    background-color:#683066;
+     
+     color:rgb(240, 241, 241);
+   }
+
+   button.btn.btn-dark.profile-btn:hover{
+    color:#683066;
+     
+    background-color:rgb(240, 241, 241);
+   }

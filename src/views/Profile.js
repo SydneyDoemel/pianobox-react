@@ -166,7 +166,7 @@ export default function Profile({ user }) {
                                   Delete
                                 </button>
                               
-                                <button type="button" onClick={()=>setInput(url[1]._location.path_)} className="btn btn-outline-dark" data-toggle="modal" data-target="#exampleModal" >
+                                <button type="button" onClick={()=>setInput(url[1]._location.path_)} className="btn btn-dark" data-toggle="modal" data-target="#exampleModal" >
                                   Add to Folder
                                 </button>
                                 <div className="modal fade" id="exampleModal" tabIndex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" >
