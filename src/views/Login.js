@@ -60,7 +60,7 @@ export default class Login extends Component {
     };
 
     render(){
-        return this.state.redirect ? <Navigate to='/piano'/> :
+        return this.state.redirect ? <Navigate to='/'/> :
         (
             <>
            

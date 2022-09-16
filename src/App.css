@@ -1,13 +1,13 @@
 
   .app-body{
     padding-bottom: 2.5rem;
-    background-color: rgb(240, 241, 241);
+    background-color: #EEEEEE;
     font-family: 'Poppins', sans-serif;
   }
   .login-body, .signup-body{
     position: relative;
     min-height: 100vh;
-    background-color: rgb(240, 241, 241);
+    background-color: #EEEEEE;
   }
 
 .btn:focus {
@@ -20,76 +20,79 @@
   object-fit: cover;
 }
 .navbar{
-  background-color: rgb(25, 1, 102);
+  background-color: #271751;
   font-size: 1.1rem;
   
 }
 .login{
-  color:  rgb(25, 1, 102);
+  color:  #271751;
 }
 .signup-link{
-  color:  rgb(255, 17, 61);
+  color:  #EA5753;
 }
 .sub-btn{
-  color:  rgb(25, 1, 102);
+  color:  #271751;
 }
 .sub-btn:hover{
-  background-color:  rgb(25, 1, 102);
+  background-color:  #271751;
 }
 .sub-btn:focus{
-  background-color:  rgb(25, 1, 102);
+  background-color:  #271751;
 }
 a.nav-link, p.color-text{
-  color:  rgb(240, 241, 241);
+  color:  #EEEEEE;
   padding-top: .7rem;
   
 }
-p.color-text:hover, a.nav-link:hover, li.dropdown-item{
-  color:rgb(255, 17, 61);
-  background-color:  rgb(25, 1, 102);
+p.color-text:hover, a.nav-link:hover, li.dropdown-item:hover{
+  color:#FFB88E;
+  background-color:  #271751;
+}
+ul.dropdown-menu.me-2.show:hover{
+  background-color:  #271751;
 }
 .dd2{
   margin-left: 66vw;
 }
 a.nav-link.signup-btn{
-  background-color: rgb(255, 17, 61);
-  border: 2px solid rgb(255, 17, 61);
+  background-color: #EA5753;
+  border: 2px solid #EA5753;
   border-radius: 30px;
   width: 10vw;
   text-align: center;
-  color: rgb(25, 1, 102);
+  color: #271751;
   
 }
 a.nav-link.signup-btn:hover{
-  background-color: rgb(240, 241, 241);
-  color: rgb(255, 17, 61);
+  background-color: #EEEEEE;
+  color: #EA5753;
   border: none;
 }
 .toggler{
-  color:  rgb(255, 17, 61);
+  color:  #EA5753;
 }
 p.login-text{
   padding-top:.2rem;
 }
 p.login-text:hover{
-color: rgb(255, 17, 61);
+color: #EA5753;
 }
 input.form-control{
-  background-color: rgb(240, 241, 241);
-  border: 1px solid rgb(25, 1, 102);
+  background-color: #EEEEEE;
+  border: 1px solid #271751;
 }
 ul.dropdown-menu.me-2{
-  background-color: rgb(25, 1, 102);
-  color:  rgb(240, 241, 241);
+  background-color: #271751;
+  color:  #EEEEEE;
   
 }
 a.nav-link.dropdown-toggle.greeting-btn{
-  background-color: rgb(255, 17, 61);
-  border: 2px solid rgb(255, 17, 61);
+  background-color: #EA5753;
+  border: 2px solid #EA5753;
   border-radius: 30px;
   width: 15vw;
   text-align: center;
-  color: rgb(25, 1, 102);
+  color: #271751;
   font-weight: bold;
   
 }
@@ -100,8 +103,8 @@ a.nav-link.dropdown-toggle.greeting-btn span{
 }
 
 a.nav-link.dropdown-toggle.greeting-btn:hover{
-  background-color: rgb(240, 241, 241);
-  color: rgb(255, 17, 61);
+  background-color: #EEEEEE;
+  color: #EA5753;
   border: none;
  
 }

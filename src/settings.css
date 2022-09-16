@@ -9,7 +9,10 @@
     height: 100vh;
 }
 
-
+h3.text-center.card-header{
+  color: #683066;
+  font-weight: bold;
+}
 .card{
     margin-top: 5vh;
     max-width: 60rem;
@@ -18,25 +21,45 @@
 }
 
 input[type=text] {
-    border: 1px solid rgb(25, 1, 102);
+    border: 1px solid #271751;
     border-radius: 7px;
-    background-color: rgb(240, 241, 241);
-    color: rgb(25, 1, 102);
+    background-color: #EEEEEE;
+    color: #271751;
   }
 
   input[type=email] {
-    border: 1px solid rgb(25, 1, 102);
+    border: 1px solid #271751;
     border-radius: 7px;
-    background-color: rgb(240, 241, 241);
-    color: rgb(25, 1, 102);
+    background-color: #EEEEEE;
+    color: #271751;
   } 
   input[type=password] {
-    border: 1px solid rgb(25, 1, 102);
+    border: 1px solid #271751;
     border-radius: 7px;
-    background-color: rgb(240, 241, 241);
-    color: rgb(25, 1, 102);
+    background-color: #EEEEEE;
+    color: #271751;
   }
 
   div.modal-body, div.modal-header{
-    background-color: rgb(240, 241, 241);
+    background-color: #EEEEEE;
   }
+button.btn-outline-dark.btn-purp{
+background-color: white;
+border: 1px solid #683066;
+color:#683066;
+}
+
+button.btn-outline-dark.btn-purp:hover{
+  background-color: #683066;
+  border: 1px solid #683066;
+  color:#EEEEEE;
+  }
+div.modal-footer{
+  background-color:#EEEEEE;
+}
+
+button.btn.btn-danger:hover{
+  background-color: white;
+  border: 1px solid rgb(202, 3, 3);
+  color: rgb(202, 3, 3);
+}

@@ -151,7 +151,7 @@ export default function Profile2({ user }) {
         {folders? <>
         {folders.map((fold,i)=>{
         return(
-        <li className="nav-item" role="presentation">
+        <li className="nav-item mynav-item" role="presentation">
         <button className="nav-link" id={`${fold}-tab`} onClick={()=>getOneFolder(fold)} data-bs-toggle="tab" data-bs-target={`#${fold}`} type="button" role="tab" aria-controls={`${fold}`} aria-selected="false">{fold}</button>
       </li>
         )
@@ -235,15 +235,16 @@ export default function Profile2({ user }) {
                 <audio src={fold.url} controls />
                 <button  onClick={() => { deleteAudio(fold.filename)}} className="btn btn-outline-danger">Delete</button>
                 <form onSubmit={(e) => removefromFolder(e)}>
-                <button className="btn btn-outline-dark">Remove From Folder</button>
+                <button className="btn btn-outline-dark mx-2">Remove From Folder</button>
                 <input type = "hidden" name = "filename" value ={fold.filename} />
                 <input type = "hidden" name = "foldername" value ={fold.foldername} />
                 </form>
-                <BsBoxArrowUp size={"1.5rem"} />
+                <BsBoxArrowUp className="me-2" size={"1.5rem"} />
               </li>
             </div>
         </div>
         )})}
+        
       
             
               

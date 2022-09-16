@@ -7,53 +7,22 @@ export default class Nav extends Component {
     return (
         <nav className="navbar navbar-expand-lg ">
         <div className="container-fluid nav-ctnr">
-          <a className="navbar-brand mx-4" href="/piano" style={{color: 'rgb(255, 17, 61)', fontWeight: 'bold', fontSize: '1.6rem'}}>PianoBox</a>
+          <a className="navbar-brand mx-4" href="/" style={{color: 'rgb(255, 17, 61)', fontWeight: 'bold', fontSize: '1.6rem'}}>PianoBox</a>
           <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <BsList size={35} className='toggler'/>
           </button>
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-              {/* <li className="nav-item">
-                <Link className="nav-link active" aria-current="page" to="/" style={{color: 'rgb(240, 241, 241)'}}>Home</Link>
-              </li>
-              <li className="nav-item">
-                <Link className="nav-link active" aria-current="page" to="/audiotry" style={{color: 'rgb(240, 241, 241)'}}>Test</Link>
-              </li> */}
+              
               {this.props.user.username? <> 
-                <li className="nav-item ddi mx-2"><Link className="nav-link" to="/profile2" style={{color: 'rgb(240, 241, 241)'}}><p className='color-text'>Library</p></Link></li>
+                <li className="nav-item ddi mx-2"><Link className="nav-link" to="/profile" style={{color: 'rgb(240, 241, 241)'}}><p className='color-text'>Library</p></Link></li>
               <li className="nav-item piano-link">
                 <Link className="nav-link active mx-2" to="/settings" style={{color: 'rgb(240, 241, 241)'}}><p className='color-text'>Settings</p></Link>
               </li>
              
               </>:<></>}
             </ul>
-              {/* <li className="nav-item">
-                <Link className="nav-link" to="/news">News</Link>
-              </li> */}
-           
-            
              
-
-              {/* <li className="nav-item dropdown">
-                <a className="nav-link dropdown-toggle" href="/" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  Shop
-                </a>
-                <ul className="dropdown-menu">
-                  <li><Link className="dropdown-item" to="/shop">Shop</Link></li>
-                  <li><Link className="dropdown-item" to="/cart">Cart</Link></li>
-                </ul>
-              </li> */}
-
-              {/* <li className="nav-item dropdown">
-                <a className="nav-link dropdown-toggle" href="/" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  Finstagram
-                </a>
-                <ul className="dropdown-menu">
-                  <li><Link className="dropdown-item" to="/posts/create">Create Post</Link></li>
-                  <li><Link className="dropdown-item" to="/feed">Finstagram</Link></li>
-                </ul>
-              </li>
-               */}
               {this.props.user.username ?
                 <>
                 <ul className='navbar-nav  ms-auto mb-2 mb-lg-0'>

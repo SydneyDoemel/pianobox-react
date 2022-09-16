@@ -180,7 +180,7 @@ export default function SynthTest({user}) {
       <p className="tool text-center">{checked? <><p className="tooltips d-inline-flex">Use corresponding keys to play</p></>:<></>}</p>
     <div className="d-flex justify-content-center align-items-center">
      
-    <button type="button" style={{"border":"none"}}  className="" onClick={() => setOctave(octave - 1)} ><span className="tool">
+    <button type="button" style={{"border":"none"}}  className="bg-c" onClick={() => setOctave(octave - 1)} ><span className="tool">
       {checked? <><p className="tooltips">Down one octave</p></>:<></>}</span><BsArrowLeftCircle size={30} className="me-2 mt-5 octave-arrow"/> </button>
 
     <div className="piano ">
@@ -307,13 +307,13 @@ export default function SynthTest({user}) {
           {checked? <><p className="tooltips">Up one octave</p></>:<></>}</span><BsArrowRightCircle size={30} className="ms-2 mt-5 octave-arrow"/></button>
       
       </div>
-      <Effects synth={synth} /><span className="tool effect-tool">
-        {checked? <><p className="tooltips d-inline-flex">Enable or disable effects</p></>:<></>}</span>
-        <span className="tool effect-tool2">{checked? <><p className="tooltips d-inline-flex">Adjust effects with slider</p></>:<></>}</span>
+      <Effects synth={synth} /><span className="tool effect-tool ms-5">
+        {checked? <><p className="tooltips d-inline-flex">Enable/disable effects</p></>:<></>}</span>
+        <span className="tool effect-tool2 ms-3">{checked? <><p className="tooltips d-inline-flex ">Adjust effects with slider</p></>:<></>}</span>
       {user.username? <>
         <Record gainNode={gainNode} user={user}/>
         <span className="tool record-tool">{checked? <><p className="tooltips d-inline-flex">Record audio</p></>:<></>}</span>
-          <span className="tool record-tool2">{checked? <><p className="tooltips d-inline-flex">Save audio to profile</p></>:<></>}</span> </>
+          <span className="tool record-tool2">{checked? <><p className="tooltips d-inline-flex ">Save audio to library</p></>:<></>}</span> </>
           :
           <><p className="mt-5 text-center">To save and store your masterpieces, <Link to='/signup'>Sign Up</Link> for PianoBox</p>
           </>}

@@ -1,17 +1,17 @@
 .copyright{
-    background-color:rgb(25, 1, 102);
+    background-color:#271751;
   }
   footer{
     position: relative;
     bottom: 0;
     width: 100%;
-    background-color:rgb(25, 1, 102) ;
+    background-color:#271751 ;
     height: 2.5rem;
    
   }
   .light-color{
-    color: rgb(240, 241, 241)
+    color: #EEEEEE
   }
   .red-color{
-    color: rgb(255, 17, 61);
+    color: #EA5753;
   }

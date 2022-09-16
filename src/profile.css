@@ -13,18 +13,18 @@
 }
 
 button.btn.btn-outline-primary.mx-3:hover{
-    background-color:rgb(25, 1, 102);
+    background-color:#271751;
      
-     color:rgb(240, 241, 241);
+     color:#EEEEEE;
    }
 button.btn.btn-dark.profile-btn{
     background-color:#683066;
      
-     color:rgb(240, 241, 241);
+     color:#EEEEEE;
    }
 
    button.btn.btn-dark.profile-btn:hover{
     color:#683066;
      
-    background-color:rgb(240, 241, 241);
+    background-color:#EEEEEE;
    }

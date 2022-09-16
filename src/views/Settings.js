@@ -82,7 +82,7 @@ export default function Settings({user, logMeOut}) {
     <h3 className="text-center card-header">Settings</h3>
     <div className="d-flex flex-column text-center settings-buttons card-body">
       <div className="">
-        <button type="button" className="btn btn-outline-dark my-3 settings-btn" data-bs-toggle="modal" data-bs-target="#exampleModal" >
+        <button type="button" className="btn btn-outline-dark btn-purp my-3 settings-btn" data-bs-toggle="modal" data-bs-target="#exampleModal" >
           Change Username
         </button>
         <div className="modal fade" id="exampleModal" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" >
@@ -101,6 +101,7 @@ export default function Settings({user, logMeOut}) {
             <input type="submit" className="btn btn-outline-dark" value="Submit"/>
             </form>
               </div>
+              <div className="modal-footer"></div>
             </div>
           </div>
         </div>
@@ -108,7 +109,7 @@ export default function Settings({user, logMeOut}) {
 
 
       <div>
-        <button type="button" className="btn btn-outline-dark my-3 settings-btn" data-bs-toggle="modal" data-bs-target="#email" >
+        <button type="button" className="btn btn-outline-dark btn-purp my-3 settings-btn" data-bs-toggle="modal" data-bs-target="#email" >
           Change Email
         </button>
         <div className="modal fade" id="email" tabIndex="-1" aria-labelledby="emailModalLabel" aria-hidden="true" >
@@ -127,7 +128,7 @@ export default function Settings({user, logMeOut}) {
             <input type="submit" className="btn btn-outline-dark" value="Submit"/>
             </form>
               </div>
-              
+              <div className="modal-footer"></div>
             </div>
           </div>
         </div>
@@ -137,7 +138,7 @@ export default function Settings({user, logMeOut}) {
 
       <div>
       <div>
-        <button type="button" className="btn btn-outline-dark my-3 settings-btn" data-bs-toggle="modal" data-bs-target="#password" >
+        <button type="button" className="btn btn-outline-dark btn-purp my-3 settings-btn" data-bs-toggle="modal" data-bs-target="#password" >
           Change Password
         </button>
         <div className="modal fade" id="password" tabIndex="-1" aria-labelledby="passwordModalLabel" aria-hidden="true" >
@@ -158,7 +159,7 @@ export default function Settings({user, logMeOut}) {
             <input type="submit" className="btn btn-outline-dark" value="Submit"/>
             </form>
               </div>
-              
+              <div className="modal-footer"></div>
             </div>
           </div>
         </div>
@@ -167,7 +168,7 @@ export default function Settings({user, logMeOut}) {
 
 
       <div>
-        <button type="button" className="btn btn-outline-dark my-3 settings-btn" data-bs-toggle="modal" data-bs-target="#newaccountModal" >
+        <button type="button" className="btn btn-danger my-3 settings-btn" data-bs-toggle="modal" data-bs-target="#newaccountModal" >
           Delete Account
         </button>
         <div className="modal fade" id="newaccountModal" tabIndex="-1" aria-labelledby="newaccountModalLabel" aria-hidden="true" >
@@ -185,7 +186,7 @@ export default function Settings({user, logMeOut}) {
             <input type="submit" className="btn btn-outline-danger" value="Delete"/>
             </form>
               </div>
-              
+              <div className="modal-footer"></div>
             </div>
           </div>
         </div>
