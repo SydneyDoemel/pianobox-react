@@ -1,23 +1,14 @@
-import React, { Component } from 'react'
-
+import React from 'react'
 import './App.css';
-import Home from './views/Home'
 import Nav from './components/Nav'
-import { Routes, Route, BrowserRouter, Router } from 'react-router-dom'
+import { Routes, Route, BrowserRouter } from 'react-router-dom'
 import Login from './views/Login'
 import SignUp from './views/SignUp'
 import SynthTest from './views/SynthTest';
-import SavedBlobs from './views/Profile';
-import Profile from './views/Profile';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import Footer from './components/Footer';
 import Profile2 from './views/Profile2';
 import Settings from './views/Settings';
-
-
-
-
-
 export default function App() {
 
   const getUserFromLocalStorage = () => {
@@ -44,13 +35,12 @@ export default function App() {
                <Nav user={user} logMeOut={logMeOut}/>
           
                <Routes >
-                 {/* <Route path='/' element={<Home user={user}/>}/> */}
                  <Route path='/login' element={<Login logMeIn={logMeIn}/>}/>
                  <Route path='/signup' element={<SignUp/>}/>
                  <Route path='/profile' element={<Profile2 user={user}/>}/>
                  <Route path='/' element={<SynthTest user={user}/>}/>
                  <Route path='/settings' element={<Settings logMeOut={logMeOut} user={user}/>} />
-              
+               
             
                </Routes>
                </div>
